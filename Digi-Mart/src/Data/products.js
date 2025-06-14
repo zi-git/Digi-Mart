@@ -1,1516 +1,1192 @@
-const products = [
-  {
-    name: "Trendy Boots",
-    price: 3135,
-    description:
-      "Trendy Boots perfect for daily wear. Designed with quality and comfort in mind.",
-    category: "footwear",
-    image: "https://images.meesho.com/images/products/441503252/x8scf_512.webp",
-    image2:
-      "https://images.meesho.com/images/products/441503252/or46o_512.webp",
-    image3:
-      "https://images.meesho.com/images/products/441503252/khr3b_512.webp",
-  },
-  {
-    name: "Paragon K6016L Women Sandals | Casual & Formal Sandals | Stylish, Comfortable & Durable | For Daily & Occasion Wear",
-    price: 979,
-    description:
-      "Stylish Sandals perfect for daily wear. Designed with quality and comfort in mind.",
-    category: "footwear",
-    image:
-      "https://paragonfootwear.com/cdn/shop/products/k6016l_grn_1.jpg?v=1741862762&width=1024",
-    image2:
-      "https://paragonfootwear.com/cdn/shop/products/k6016l_grn_2.jpg?v=1741862762&width=1024",
-    image3:
-      "https://paragonfootwear.com/cdn/shop/products/k6016l_grn_3_114x144_crop_center.jpg?v=1741862762",
-  },
-  {
-    name: "Men's Flip Flop Slippers - WC6621 Navy Blue Red",
-    price: 339,
-    description:
-      "Trendy Slippers perfect for daily wear. Designed with quality and comfort in mind.",
-    category: "footwear",
-    image:
-      "https://www.walkaroo.in/cdn/shop/files/1_b539b171-b318-41bc-8d07-8c791aae51d3.jpg?v=1746536939&width=104",
-    image2:
-      "https://www.walkaroo.in/cdn/shop/files/2_f59fa8fd-8ec2-4334-af1e-820dcbd930ea.jpg?v=1746536939&width=104",
-    image3:
-      "https://www.walkaroo.in/cdn/shop/files/3_a0eecb12-84c3-48d5-bcf5-ec50f6eae87f.jpg?v=1746536939&width=104",
-  },
-  {
-    name: "Men's Daily Wear V-Strap Sandals - WGP50006 Black",
-    price: 49,
-    description:
-      "Elegant Slippers perfect for daily wear. Designed with quality and comfort in mind.",
-    category: "footwear",
-    image:
-      "https://www.walkaroo.in/cdn/shop/files/1_241a5a17-fbf8-4264-ad82-eb0d221ded3d.jpg?v=1746162157&width=1000",
-    image2:
-      "https://www.walkaroo.in/cdn/shop/files/2_b2ae8883-9515-4607-92c3-0a808364255c.jpg?v=1746162157&width=104",
-    image3:
-      "https://www.walkaroo.in/cdn/shop/files/3_cf390287-145f-4d94-a4c2-7ac8c491a6d9.jpg?v=1746162157&width=104",
-  },
-  {
-    name: "Men's Active Beads Sports Shoe - WS9163 Blue Green",
-    price: 1799,
-    description:
-      "Elegant Sandals perfect for daily wear. Designed with quality and comfort in mind.",
-    category: "footwear",
-    image:
-      "https://www.walkaroo.in/cdn/shop/files/1_8177b84f-3f1e-4455-849b-aec5578121c2.jpg?v=1740582796&width=1000",
-    image2:
-      "https://www.walkaroo.in/cdn/shop/files/ver3-remake.png?v=1745232360&width=1000",
-    image3:
-      "https://www.walkaroo.in/cdn/shop/files/7_bdc952f4-58be-42e4-b4bd-00e77c8fbe24.jpg?v=1745232360&width=1000",
-  },
-  {
-    name: "Women's Daily Wear Sandal - WLR72013 Peacock Blue",
-    price: 389,
-    description:
-      "Comfortable Heels perfect for daily wear. Designed with quality and comfort in mind.",
-    category: "footwear",
-    image:
-      "https://www.walkaroo.in/cdn/shop/files/1_1cccd6f7-9e10-400d-b6c7-73049e059d7d.jpg?v=1748861553&width=1000",
-    image2:
-      "https://www.walkaroo.in/cdn/shop/files/2_1e6e0a49-28f8-4ceb-a913-8704dba359e0.jpg?v=1748861553&width=104",
-    image3:
-      "https://www.walkaroo.in/cdn/shop/files/3_d7592716-863c-4cad-bd1e-cf1a0e05f1a9.jpg?v=1748861553&width=104",
-  },
-  {
-    name: "Men's Loafer Formal Shoes - 17142 Brown ",
-    price: 699.0,
-    description:
-      "Trendy Loafers perfect for daily wear. Designed with quality and comfort in mind.",
-    category: "footwear",
-    image:
-      "https://www.walkaroo.in/cdn/shop/files/1_d5f44e9e-3e4f-4ea0-9c1f-c4b4899c3a24.jpg?v=1745389333&width=1000",
-    image2:
-      "https://www.walkaroo.in/cdn/shop/files/3_26482cd4-32c2-47b7-9def-95d379bd340c.jpg?v=1745389332&width=1000",
-    image3:
-      "https://www.walkaroo.in/cdn/shop/files/2_2883cf4d-634c-4017-ac9c-67881c1b9a3c.jpg?v=1745389333&width=1000",
-  },
-  {
-    name: "Men's Loafer Formal Shoes - 17101 Black",
-    price: 649.0,
-    description:
-      "Stylish Loafers perfect for daily wear. Designed with quality and comfort in mind.",
-    category: "footwear",
-    image:
-      "https://www.walkaroo.in/cdn/shop/files/03_9156f34c-c148-424d-9e20-98cd5756a55d.jpg?v=1740585634&width=1000",
-    image2:
-      "https://www.walkaroo.in/cdn/shop/files/01_76776e03-c9c4-4522-a115-b59d3326f733.jpg?v=1740585634&width=104",
-    image3:
-      "https://www.walkaroo.in/cdn/shop/files/02_10571221-59a4-42c9-a502-14219f808a8b.jpg?v=1740585634&width=104",
-  },
-  {
-    name: "Wireless Mouse 1",
-    price: 647.25,
-    description:
-      "This is a high-quality wireless mouse 1 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Headphones",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Mouse+1+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Mouse+1+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Mouse+1+View3",
-  },
-  {
-    name: "Smart Router 2",
-    price: 1399.18,
-    description:
-      "This is a high-quality smart router 2 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Kitchen",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Router+2+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Router+2+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Router+2+View3",
-  },
-  {
-    name: "Ergonomic Drone 3",
-    price: 1118.89,
-    description:
-      "This is a high-quality ergonomic drone 3 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "Accessories",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Drone+3+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Drone+3+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Drone+3+View3",
-  },
-  {
-    name: "Portable Tablet 4",
-    price: 1391.8,
-    description:
-      "This is a high-quality portable tablet 4 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "Lenses",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Tablet+4+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Tablet+4+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Tablet+4+View3",
-  },
-  {
-    name: "Durable Printer 5",
-    price: 125.75,
-    description:
-      "This is a high-quality durable printer 5 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "SSDs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Printer+5+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Printer+5+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Printer+5+View3",
-  },
-  {
-    name: "High-Performance Webcam 6",
-    price: 135.25,
-    description:
-      "This is a high-quality high-performance webcam 6 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Laundry",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Webcam+6+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Webcam+6+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Webcam+6+View3",
-  },
-  {
-    name: "Compact Headphone 7",
-    price: 1300.99,
-    description:
-      "This is a high-quality compact headphone 7 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Security Cameras",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Headphone+7+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Headphone+7+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Headphone+7+View3",
-  },
-  {
-    name: "Stylish Charger 8",
-    price: 900.5,
-    description:
-      "This is a high-quality stylish charger 8 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "Network Storage",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Charger+8+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Charger+8+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Charger+8+View3",
-  },
-  {
-    name: "Eco-Friendly Mouse 9",
-    price: 1300.99,
-    description:
-      "This is a high-quality eco-friendly mouse 9 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Microphones",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Mouse+9+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Mouse+9+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Mouse+9+View3",
-  },
-  {
-    name: "Advanced Router 10",
-    price: 1050.0,
-    description:
-      "This is a high-quality advanced router 10 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Heating & Cooling",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Router+10+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Router+10+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Router+10+View3",
-  },
-  {
-    name: "Wireless Speaker 11",
-    price: 1475.25,
-    description:
-      "This is a high-quality wireless speaker 11 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Scanners",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Speaker+11+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Speaker+11+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Speaker+11+View3",
-  },
-  {
-    name: "Smart Webcam 12",
-    price: 850.75,
-    description:
-      "This is a high-quality smart webcam 12 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "Consoles",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Webcam+12+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Webcam+12+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Webcam+12+View3",
-  },
-  {
-    name: "Ergonomic Monitor 13",
-    price: 1200.0,
-    description:
-      "This is a high-quality ergonomic monitor 13 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "DSLRs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Monitor+13+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Monitor+13+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Monitor+13+View3",
-  },
-  {
-    name: "Portable Headphones 14",
-    price: 120.0,
-    description:
-      "This is a high-quality portable headphones 14 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Computing",
-    "sub-category": "GPUs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Headphones+14+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Headphones+14+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Headphones+14+View3",
-  },
-  {
-    name: "Durable Router 15",
-    price: 250.0,
-    description:
-      "This is a high-quality durable router 15 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Lighting",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Router+15+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Router+15+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Router+15+View3",
-  },
-  {
-    name: "High-Performance Drone 16",
-    price: 800.0,
-    description:
-      "This is a high-quality high-performance drone 16 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Wearables",
-    "sub-category": "Smartwatches",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Drone+16+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Drone+16+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Drone+16+View3",
-  },
-  {
-    name: "Compact Tablet 17",
-    price: 550.0,
-    description:
-      "This is a high-quality compact tablet 17 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "HDDs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Tablet+17+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Tablet+17+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Tablet+17+View3",
-  },
-  {
-    name: "Stylish Camera 18",
-    price: 950.0,
-    description:
-      "This is a high-quality stylish camera 18 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Electronics",
-    "sub-category": "Laptops",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Camera+18+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Camera+18+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Camera+18+View3",
-  },
-  {
-    name: "Eco-Friendly Watch 19",
-    price: 150.0,
-    description:
-      "This is a high-quality eco-friendly watch 19 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Cleaning",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Watch+19+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Watch+19+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Watch+19+View3",
-  },
-  {
-    name: "Advanced Drive 20",
-    price: 200.0,
-    description:
-      "This is a high-quality advanced drive 20 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Printers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Drive+20+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Drive+20+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Drive+20+View3",
-  },
-  {
-    name: "Wireless Printer 21",
-    price: 350.0,
-    description:
-      "This is a high-quality wireless printer 21 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "PC Games",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Printer+21+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Printer+21+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Printer+21+View3",
-  },
-  {
-    name: "Smart Projector 22",
-    price: 700.0,
-    description:
-      "This is a high-quality smart projector 22 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "Mirrorless",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Projector+22+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Projector+22+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Projector+22+View3",
-  },
-  {
-    name: "Ergonomic Mouse 23",
-    price: 75.0,
-    description:
-      "This is a high-quality ergonomic mouse 23 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Speakers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Mouse+23+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Mouse+23+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Mouse+23+View3",
-  },
-  {
-    name: "Portable Keyboard 24",
-    price: 120.0,
-    description:
-      "This is a high-quality portable keyboard 24 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Computing",
-    "sub-category": "CPUs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Keyboard+24+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Keyboard+24+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Keyboard+24+View3",
-  },
-  {
-    name: "Durable Monitor 25",
-    price: 280.0,
-    description:
-      "This is a high-quality durable monitor 25 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Security Cameras",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Monitor+25+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Monitor+25+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Monitor+25+View3",
-  },
-  {
-    name: "High-Performance Speaker 26",
-    price: 180.0,
-    description:
-      "This is a high-quality high-performance speaker 26 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Wearables",
-    "sub-category": "Fitness Trackers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Speaker+26+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Speaker+26+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Speaker+26+View3",
-  },
-  {
-    name: "Compact Headphones 27",
-    price: 90.0,
-    description:
-      "This is a high-quality compact headphones 27 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "USB Drives",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Headphones+27+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Headphones+27+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Headphones+27+View3",
-  },
-  {
-    name: "Stylish Webcam 28",
-    price: 60.0,
-    description:
-      "This is a high-quality stylish webcam 28 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Electronics",
-    "sub-category": "Smartphones",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Webcam+28+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Webcam+28+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Webcam+28+View3",
-  },
-  {
-    name: "Eco-Friendly Charger 29",
-    price: 45.0,
-    description:
-      "This is a high-quality eco-friendly charger 29 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Kitchen",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Charger+29+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Charger+29+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Charger+29+View3",
-  },
-  {
-    name: "Advanced Router 30",
-    price: 300.0,
-    description:
-      "This is a high-quality advanced router 30 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Paper",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Router+30+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Router+30+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Router+30+View3",
-  },
-  {
-    name: "Wireless Drone 31",
-    price: 600.0,
-    description:
-      "This is a high-quality wireless drone 31 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "VR Headsets",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Drone+31+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Drone+31+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Drone+31+View3",
-  },
-  {
-    name: "Smart Tablet 32",
-    price: 400.0,
-    description:
-      "This is a high-quality smart tablet 32 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "Tripods",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Tablet+32+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Tablet+32+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Tablet+32+View3",
-  },
-  {
-    name: "Ergonomic Camera 33",
-    price: 800.0,
-    description:
-      "This is a high-quality ergonomic camera 33 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Soundbars",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Camera+33+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Camera+33+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Camera+33+View3",
-  },
-  {
-    name: "Portable Watch 34",
-    price: 200.0,
-    description:
-      "This is a high-quality portable watch 34 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Computing",
-    "sub-category": "GPUs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Watch+34+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Watch+34+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Watch+34+View3",
-  },
-  {
-    name: "Durable Drive 35",
-    price: 150.0,
-    description:
-      "This is a high-quality durable drive 35 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Lighting",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Drive+35+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Drive+35+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Drive+35+View3",
-  },
-  {
-    name: "High-Performance Printer 36",
-    price: 400.0,
-    description:
-      "This is a high-quality high-performance printer 36 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Wearables",
-    "sub-category": "Fitness Trackers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Printer+36+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Printer+36+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Printer+36+View3",
-  },
-  {
-    name: "Compact Projector 37",
-    price: 1100.0,
-    description:
-      "This is a high-quality compact projector 37 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "Network Storage",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Projector+37+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Projector+37+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Projector+37+View3",
-  },
-  {
-    name: "Stylish Mouse 38",
-    price: 55.0,
-    description:
-      "This is a high-quality stylish mouse 38 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Electronics",
-    "sub-category": "Tablets",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Mouse+38+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Mouse+38+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Mouse+38+View3",
-  },
-  {
-    name: "Eco-Friendly Keyboard 39",
-    price: 95.0,
-    description:
-      "This is a high-quality eco-friendly keyboard 39 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Cleaning",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Keyboard+39+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Keyboard+39+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Keyboard+39+View3",
-  },
-  {
-    name: "Advanced Monitor 40",
-    price: 350.0,
-    description:
-      "This is a high-quality advanced monitor 40 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Ink & Toner",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Monitor+40+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Monitor+40+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Monitor+40+View3",
-  },
-  {
-    name: "Wireless Speaker 41",
-    price: 150.0,
-    description:
-      "This is a high-quality wireless speaker 41 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "Accessories",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Speaker+41+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Speaker+41+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Speaker+41+View3",
-  },
-  {
-    name: "Smart Headphones 42",
-    price: 130.0,
-    description:
-      "This is a high-quality smart headphones 42 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "DSLRs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Headphones+42+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Headphones+42+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Headphones+42+View3",
-  },
-  {
-    name: "Ergonomic Webcam 43",
-    price: 70.0,
-    description:
-      "This is a high-quality ergonomic webcam 43 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Headphones",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Webcam+43+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Webcam+43+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Webcam+43+View3",
-  },
-  {
-    name: "Portable Charger 44",
-    price: 50.0,
-    description:
-      "This is a high-quality portable charger 44 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Computing",
-    "sub-category": "RAM",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Charger+44+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Charger+44+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Charger+44+View3",
-  },
-  {
-    name: "Durable Router 45",
-    price: 200.0,
-    description:
-      "This is a high-quality durable router 45 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Thermostats",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Router+45+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Router+45+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Router+45+View3",
-  },
-  {
-    name: "High-Performance Drone 46",
-    price: 750.0,
-    description:
-      "This is a high-quality high-performance drone 46 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Wearables",
-    "sub-category": "VR Headsets",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Drone+46+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Drone+46+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Drone+46+View3",
-  },
-  {
-    name: "Compact Tablet 47",
-    price: 600.0,
-    description:
-      "This is a high-quality compact tablet 47 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "SSDs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Tablet+47+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Tablet+47+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Tablet+47+View3",
-  },
-  {
-    name: "Stylish Camera 48",
-    price: 1000.0,
-    description:
-      "This is a high-quality stylish camera 48 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Electronics",
-    "sub-category": "Desktops",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Camera+48+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Camera+48+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Camera+48+View3",
-  },
-  {
-    name: "Eco-Friendly Watch 49",
-    price: 180.0,
-    description:
-      "This is a high-quality eco-friendly watch 49 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Heating & Cooling",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Watch+49+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Watch+49+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Watch+49+View3",
-  },
-  {
-    name: "Advanced Drive 50",
-    price: 220.0,
-    description:
-      "This is a high-quality advanced drive 50 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Scanners",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Drive+50+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Drive+50+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Drive+50+View3",
-  },
-  {
-    name: "Wireless Printer 51",
-    price: 380.0,
-    description:
-      "This is a high-quality wireless printer 51 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "Consoles",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Printer+51+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Printer+51+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Printer+51+View3",
-  },
-  {
-    name: "Smart Projector 52",
-    price: 1200.0,
-    description:
-      "This is a high-quality smart projector 52 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "Mirrorless",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Projector+52+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Projector+52+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Projector+52+View3",
-  },
-  {
-    name: "Ergonomic Mouse 53",
-    price: 65.0,
-    description:
-      "This is a high-quality ergonomic mouse 53 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Speakers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Mouse+53+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Mouse+53+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Mouse+53+View3",
-  },
-  {
-    name: "Portable Keyboard 54",
-    price: 110.0,
-    description:
-      "This is a high-quality portable keyboard 54 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Computing",
-    "sub-category": "CPUs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Keyboard+54+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Keyboard+54+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Keyboard+54+View3",
-  },
-  {
-    name: "Durable Monitor 55",
-    price: 320.0,
-    description:
-      "This is a high-quality durable monitor 55 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Security Cameras",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Monitor+55+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Monitor+55+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Monitor+55+View3",
-  },
-  {
-    name: "High-Performance Speaker 56",
-    price: 190.0,
-    description:
-      "This is a high-quality high-performance speaker 56 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Wearables",
-    "sub-category": "Smartwatches",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Speaker+56+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Speaker+56+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Speaker+56+View3",
-  },
-  {
-    name: "Compact Headphones 57",
-    price: 100.0,
-    description:
-      "This is a high-quality compact headphones 57 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "HDDs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Headphones+57+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Headphones+57+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Headphones+57+View3",
-  },
-  {
-    name: "Stylish Webcam 58",
-    price: 70.0,
-    description:
-      "This is a high-quality stylish webcam 58 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Electronics",
-    "sub-category": "Peripherals",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Webcam+58+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Webcam+58+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Webcam+58+View3",
-  },
-  {
-    name: "Eco-Friendly Charger 59",
-    price: 55.0,
-    description:
-      "This is a high-quality eco-friendly charger 59 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Laundry",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Charger+59+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Charger+59+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Charger+59+View3",
-  },
-  {
-    name: "Advanced Router 60",
-    price: 330.0,
-    description:
-      "This is a high-quality advanced router 60 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Printers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Router+60+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Router+60+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Router+60+View3",
-  },
-  {
-    name: "Wireless Drone 61",
-    price: 650.0,
-    description:
-      "This is a high-quality wireless drone 61 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "PC Games",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Drone+61+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Drone+61+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Drone+61+View3",
-  },
-  {
-    name: "Smart Tablet 62",
-    price: 420.0,
-    description:
-      "This is a high-quality smart tablet 62 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "Tripods",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Tablet+62+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Tablet+62+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Tablet+62+View3",
-  },
-  {
-    name: "Ergonomic Camera 63",
-    price: 850.0,
-    description:
-      "This is a high-quality ergonomic camera 63 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Soundbars",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Camera+63+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Camera+63+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Camera+63+View3",
-  },
-  {
-    name: "Portable Watch 64",
-    price: 210.0,
-    description:
-      "This is a high-quality portable watch 64 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Computing",
-    "sub-category": "RAM",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Watch+64+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Watch+64+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Watch+64+View3",
-  },
-  {
-    name: "Durable Drive 65",
-    price: 160.0,
-    description:
-      "This is a high-quality durable drive 65 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Thermostats",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Drive+65+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Drive+65+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Drive+65+View3",
-  },
-  {
-    name: "High-Performance Printer 66",
-    price: 420.0,
-    description:
-      "This is a high-quality high-performance printer 66 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Wearables",
-    "sub-category": "Smartwatches",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Printer+66+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Printer+66+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Printer+66+View3",
-  },
-  {
-    name: "Compact Projector 67",
-    price: 1150.0,
-    description:
-      "This is a high-quality compact projector 67 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "USB Drives",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Projector+67+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Projector+67+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Projector+67+View3",
-  },
-  {
-    name: "Stylish Mouse 68",
-    price: 60.0,
-    description:
-      "This is a high-quality stylish mouse 68 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Electronics",
-    "sub-category": "Desktops",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Mouse+68+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Mouse+68+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Mouse+68+View3",
-  },
-  {
-    name: "Eco-Friendly Keyboard 69",
-    price: 105.0,
-    description:
-      "This is a high-quality eco-friendly keyboard 69 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Heating & Cooling",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Keyboard+69+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Keyboard+69+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Keyboard+69+View3",
-  },
-  {
-    name: "Advanced Monitor 70",
-    price: 380.0,
-    description:
-      "This is a high-quality advanced monitor 70 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Paper",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Monitor+70+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Monitor+70+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Monitor+70+View3",
-  },
-  {
-    name: "Wireless Speaker 71",
-    price: 160.0,
-    description:
-      "This is a high-quality wireless speaker 71 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "Accessories",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Speaker+71+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Speaker+71+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Speaker+71+View3",
-  },
-  {
-    name: "Smart Headphones 72",
-    price: 140.0,
-    description:
-      "This is a high-quality smart headphones 72 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "DSLRs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Headphones+72+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Headphones+72+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Headphones+72+View3",
-  },
-  {
-    name: "Ergonomic Webcam 73",
-    price: 80.0,
-    description:
-      "This is a high-quality ergonomic webcam 73 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Headphones",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Webcam+73+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Webcam+73+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Webcam+73+View3",
-  },
-  {
-    name: "Portable Charger 74",
-    price: 60.0,
-    description:
-      "This is a high-quality portable charger 74 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Computing",
-    "sub-category": "SSDs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Charger+74+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Charger+74+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Charger+74+View3",
-  },
-  {
-    name: "Durable Router 75",
-    price: 220.0,
-    description:
-      "This is a high-quality durable router 75 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Voice Assistants",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Router+75+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Router+75+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Router+75+View3",
-  },
-  {
-    name: "High-Performance Drone 76",
-    price: 800.0,
-    description:
-      "This is a high-quality high-performance drone 76 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Wearables",
-    "sub-category": "Fitness Trackers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Drone+76+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Drone+76+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Drone+76+View3",
-  },
-  {
-    name: "Compact Tablet 77",
-    price: 650.0,
-    description:
-      "This is a high-quality compact tablet 77 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "HDDs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Tablet+77+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Tablet+77+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Tablet+77+View3",
-  },
-  {
-    name: "Stylish Camera 78",
-    price: 1050.0,
-    description:
-      "This is a high-quality stylish camera 78 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Electronics",
-    "sub-category": "Laptops",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Camera+78+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Camera+78+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Camera+78+View3",
-  },
-  {
-    name: "Eco-Friendly Watch 79",
-    price: 190.0,
-    description:
-      "This is a high-quality eco-friendly watch 79 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Kitchen",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Watch+79+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Watch+79+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Watch+79+View3",
-  },
-  {
-    name: "Advanced Drive 80",
-    price: 230.0,
-    description:
-      "This is a high-quality advanced drive 80 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Scanners",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Drive+80+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Drive+80+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Drive+80+View3",
-  },
-  {
-    name: "Wireless Printer 81",
-    price: 400.0,
-    description:
-      "This is a high-quality wireless printer 81 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "Consoles",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Printer+81+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Printer+81+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Printer+81+View3",
-  },
-  {
-    name: "Smart Projector 82",
-    price: 1250.0,
-    description:
-      "This is a high-quality smart projector 82 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "Mirrorless",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Projector+82+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Projector+82+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Projector+82+View3",
-  },
-  {
-    name: "Ergonomic Mouse 83",
-    price: 70.0,
-    description:
-      "This is a high-quality ergonomic mouse 83 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Speakers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Mouse+83+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Mouse+83+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Mouse+83+View3",
-  },
-  {
-    name: "Portable Keyboard 84",
-    price: 120.0,
-    description:
-      "This is a high-quality portable keyboard 84 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Computing",
-    "sub-category": "GPUs",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Keyboard+84+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Keyboard+84+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Keyboard+84+View3",
-  },
-  {
-    name: "Durable Monitor 85",
-    price: 350.0,
-    description:
-      "This is a high-quality durable monitor 85 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Lighting",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Monitor+85+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Monitor+85+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Monitor+85+View3",
-  },
-  {
-    name: "High-Performance Speaker 86",
-    price: 200.0,
-    description:
-      "This is a high-quality high-performance speaker 86 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Wearables",
-    "sub-category": "Smartwatches",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Speaker+86+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Speaker+86+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Speaker+86+View3",
-  },
-  {
-    name: "Compact Headphones 87",
-    price: 110.0,
-    description:
-      "This is a high-quality compact headphones 87 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "USB Drives",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Headphones+87+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Headphones+87+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Headphones+87+View3",
-  },
-  {
-    name: "Stylish Webcam 88",
-    price: 80.0,
-    description:
-      "This is a high-quality stylish webcam 88 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Electronics",
-    "sub-category": "Smartphones",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Webcam+88+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Webcam+88+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Webcam+88+View3",
-  },
-  {
-    name: "Eco-Friendly Charger 89",
-    price: 65.0,
-    description:
-      "This is a high-quality eco-friendly charger 89 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Cleaning",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Charger+89+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Charger+89+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Charger+89+View3",
-  },
-  {
-    name: "Advanced Router 90",
-    price: 360.0,
-    description:
-      "This is a high-quality advanced router 90 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Ink & Toner",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Router+90+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Router+90+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Router+90+View3",
-  },
-  {
-    name: "Wireless Drone 91",
-    price: 700.0,
-    description:
-      "This is a high-quality wireless drone 91 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Gaming",
-    "sub-category": "VR Headsets",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Wireless+Drone+91+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Wireless+Drone+91+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Wireless+Drone+91+View3",
-  },
-  {
-    name: "Smart Tablet 92",
-    price: 450.0,
-    description:
-      "This is a high-quality smart tablet 92 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Photography",
-    "sub-category": "Tripods",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Smart+Tablet+92+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Smart+Tablet+92+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Smart+Tablet+92+View3",
-  },
-  {
-    name: "Ergonomic Camera 93",
-    price: 900.0,
-    description:
-      "This is a high-quality ergonomic camera 93 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Audio",
-    "sub-category": "Soundbars",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Ergonomic+Camera+93+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Ergonomic+Camera+93+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Ergonomic+Camera+93+View3",
-  },
-  {
-    name: "Portable Watch 94",
-    price: 220.0,
-    description:
-      "This is a high-quality portable watch 94 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Computing",
-    "sub-category": "RAM",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Watch+94+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Watch+94+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Watch+94+View3",
-  },
-  {
-    name: "Durable Drive 95",
-    price: 170.0,
-    description:
-      "This is a high-quality durable drive 95 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Smart Home",
-    "sub-category": "Thermostats",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Durable+Drive+95+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Durable+Drive+95+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Durable+Drive+95+View3",
-  },
-  {
-    name: "High-Performance Printer 96",
-    price: 450.0,
-    description:
-      "This is a high-quality high-performance printer 96 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Wearables",
-    "sub-category": "Fitness Trackers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=High-Performance+Printer+96+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=High-Performance+Printer+96+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=High-Performance+Printer+96+View3",
-  },
-  {
-    name: "Compact Projector 97",
-    price: 1200.0,
-    description:
-      "This is a high-quality compact projector 97 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Storage",
-    "sub-category": "Network Storage",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Compact+Projector+97+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Compact+Projector+97+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Compact+Projector+97+View3",
-  },
-  {
-    name: "Stylish Mouse 98",
-    price: 70.0,
-    description:
-      "This is a high-quality stylish mouse 98 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Electronics",
-    "sub-category": "Peripherals",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Stylish+Mouse+98+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Stylish+Mouse+98+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Stylish+Mouse+98+View3",
-  },
-  {
-    name: "Eco-Friendly Keyboard 99",
-    price: 115.0,
-    description:
-      "This is a high-quality eco-friendly keyboard 99 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Home Appliances",
-    "sub-category": "Laundry",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Eco-Friendly+Keyboard+99+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Eco-Friendly+Keyboard+99+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Eco-Friendly+Keyboard+99+View3",
-  },
-  {
-    name: "Advanced Monitor 100",
-    price: 400.0,
-    description:
-      "This is a high-quality advanced monitor 100 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
-    category: "Office Supplies",
-    "sub-category": "Printers",
-    image:
-      "https://placehold.co/400x300/B2D5D8/333333?text=Advanced+Monitor+100+Main",
-    image2:
-      "https://placehold.co/400x300/C0E0E3/333333?text=Advanced+Monitor+100+View2",
-    image3:
-      "https://placehold.co/400x300/DFF4F6/333333?text=Advanced+Monitor+100+View3",
-  },
-];
-
-function addProductIds(products) {
-  return products.map((product, index) => ({
-    id: `${index + 1}`,
-    ...product,
-  }));
-}
-
-const productList = addProductIds(products);
+const productList = [
+  {
+    "id": 101,
+    "name": "Trendy Boots",
+    "price": 3135,
+    "description": "Trendy Boots perfect for daily wear. Designed with quality and comfort in mind.",
+    "category": "footwear",
+    "subCategory": "boots",
+    "image": "https://images.meesho.com/images/products/441503252/x8scf_512.webp",
+    "image2": "https://images.meesho.com/images/products/441503252/or46o_512.webp",
+    "image3": "https://images.meesho.com/images/products/441503252/khr3b_512.webp"
+  },
+  {
+    "id": 102,
+    "name": "Paragon K6016L Women Sandals | Casual & Formal Sandals | Stylish, Comfortable & Durable | For Daily & Occasion Wear",
+    "price": 979,
+    "description": "Stylish Sandals perfect for daily wear. Designed with quality and comfort in mind.",
+    "category": "footwear",
+    "subCategory": "sandals",
+    "image": "https://paragonfootwear.com/cdn/shop/products/k6016l_grn_1.jpg?v=1741862762&width=1024",
+    "image2": "https://paragonfootwear.com/cdn/shop/products/k6016l_grn_2.jpg?v=1741862762&width=1024",
+    "image3": "https://paragonfootwear.com/cdn/shop/products/k6016l_grn_3_114x144_crop_center.jpg?v=1741862762"
+  },
+  {
+    "id": 103,
+    "name": "Men's Flip Flop Slippers - WC6621 Navy Blue Red",
+    "price": 339,
+    "description": "Trendy Slippers perfect for daily wear. Designed with quality and comfort in mind.",
+    "category": "footwear",
+    "subCategory": "slippers",
+    "image": "https://www.walkaroo.in/cdn/shop/files/1_b539b171-b318-41bc-8d07-8c791aae51d3.jpg?v=1746536939&width=104",
+    "image2": "https://www.walkaroo.in/cdn/shop/files/2_f59fa8fd-8ec2-4334-af1e-820dcbd930ea.jpg?v=1746536939&width=104",
+    "image3": "https://www.walkaroo.in/cdn/shop/files/3_a0eecb12-84c3-48d5-bcf5-ec50f6eae87f.jpg?v=1746536939&width=104"
+  },
+  {
+    "id": 104,
+    "name": "Men's Daily Wear V-Strap Sandals - WGP50006 Black",
+    "price": 49,
+    "description": "Elegant Slippers perfect for daily wear. Designed with quality and comfort in mind.",
+    "category": "footwear",
+    "subCategory": "sandals",
+    "image": "https://www.walkaroo.in/cdn/shop/files/1_241a5a17-fbf8-4264-ad82-eb0d221ded3d.jpg?v=1746162157&width=1000",
+    "image2": "https://www.walkaroo.in/cdn/shop/files/2_b2ae8883-9515-4607-92c3-0a808364255c.jpg?v=1746162157&width=104",
+    "image3": "https://www.walkaroo.in/cdn/shop/files/3_cf390287-145f-4d94-a4c2-7ac8c491a6d9.jpg?v=1746162157&width=104"
+  },
+  {
+    "id": 105,
+    "name": "Men's Active Beads Sports Shoe - WS9163 Blue Green",
+    "price": 1799,
+    "description": "Elegant Sandals perfect for daily wear. Designed with quality and comfort in mind.",
+    "category": "footwear",
+    "subCategory": "sports shoes",
+    "image": "https://www.walkaroo.in/cdn/shop/files/1_8177b84f-3f1e-4455-849b-aec5578121c2.jpg?v=1740582796&width=1000",
+    "image2": "https://www.walkaroo.in/cdn/shop/files/ver3-remake.png?v=1745232360&width=1000",
+    "image3": "https://www.walkaroo.in/cdn/shop/files/7_bdc952f4-58be-42e4-b4bd-00e77c8fbe24.jpg?v=1745232360&width=1000"
+  },
+  {
+    "id": 106,
+    "name": "Women's Daily Wear Sandal - WLR72013 Peacock Blue",
+    "price": 389,
+    "description": "Comfortable Heels perfect for daily wear. Designed with quality and comfort in mind.",
+    "category": "footwear",
+    "subCategory": "sandals",
+    "image": "https://www.walkaroo.in/cdn/shop/files/1_1cccd6f7-9e10-400d-b6c7-73049e059d7d.jpg?v=1748861553&width=1000",
+    "image2": "https://www.walkaroo.in/cdn/shop/files/2_1e6e0a49-28f8-4ceb-a913-8704dba359e0.jpg?v=1748861553&width=104",
+    "image3": "https://www.walkaroo.in/cdn/shop/files/3_d7592716-863c-4cad-bd1e-cf1a0e05f1a9.jpg?v=1748861553&width=104"
+  },
+  {
+    "id": 107,
+    "name": "Men's Loafer Formal Shoes - 17142 Brown ",
+    "price": 699.0,
+    "description": "Trendy Loafers perfect for daily wear. Designed with quality and comfort in mind.",
+    "category": "footwear",
+    "subCategory": "loafers",
+    "image": "https://www.walkaroo.in/cdn/shop/files/1_d5f44e9e-3e4f-4ea0-9c1f-c4b4899c3a24.jpg?v=1745389333&width=1000",
+    "image2": "https://www.walkaroo.in/cdn/shop/files/3_26482cd4-32c2-47b7-9def-95d379bd340c.jpg?v=1745389332&width=1000",
+    "image3": "https://www.walkaroo.in/cdn/shop/files/2_2883cf4d-634c-4017-ac9c-67881c1b9a3c.jpg?v=1745389333&width=1000"
+  },
+  {
+    "id": 108,
+    "name": "Men's Loafer Formal Shoes - 17101 Black",
+    "price": 649.0,
+    "description": "Stylish Loafers perfect for daily wear. Designed with quality and comfort in mind.",
+    "category": "footwear",
+    "subCategory": "loafers",
+    "image": "https://www.walkaroo.in/cdn/shop/files/03_9156f34c-c148-424d-9e20-98cd5756a55d.jpg?v=1740585634&width=1000",
+    "image2": "https://www.walkaroo.in/cdn/shop/files/01_76776e03-c9c4-4522-a115-b59d3326f733.jpg?v=1740585634&width=104",
+    "image3": "https://www.walkaroo.in/cdn/shop/files/02_10571221-59a4-42c9-a502-14219f808a8b.jpg?v=1740585634&width=104"
+  },
+  {
+    "id": 1,
+    "name": "Portable Watch 94",
+    "price": 220.0,
+    "description": "This is a high-quality portable watch 94 designed for optimal performance and user satisfaction. It features advanced technology and a sleek, modern design.",
+    "category": "Computing",
+    "subCategory": "RAM",
+    "image": "https://placehold.co/400x300/B2D5D8/333333?text=Portable+Watch+94+Main",
+    "image2": "https://placehold.co/400x300/C0E0E3/333333?text=Portable+Watch+94+View2",
+    "image3": "https://placehold.co/400x300/DFF4F6/333333?text=Portable+Watch+94+View3"
+  },
+  {
+    "id": 2,
+    "name": "Ultra-Fast SSD Pro",
+    "price": 150.0,
+    "description": "Experience lightning-fast data transfer with the Ultra-Fast SSD Pro. Ideal for gaming and professional applications.",
+    "category": "Computing",
+    "subCategory": "Storage",
+    "image": "https://placehold.co/400x300/A0D2EB/333333?text=SSD+Pro+Main",
+    "image2": "https://placehold.co/400x300/ADD8E6/333333?text=SSD+Pro+View2",
+    "image3": "https://placehold.co/400x300/B0E0E6/333333?text=SSD+Pro+View3"
+  },
+  {
+    "id": 3,
+    "name": "Ergonomic Wireless Mouse",
+    "price": 45.0,
+    "description": "Comfort and precision combine in this ergonomic wireless mouse. Perfect for long working hours.",
+    "category": "Peripherals",
+    "subCategory": "Mice",
+    "image": "https://placehold.co/400x300/FFDDC1/333333?text=Ergo+Mouse+Main",
+    "image2": "https://placehold.co/400x300/FFEEDD/333333?text=Ergo+Mouse+View2",
+    "image3": "https://placehold.co/400x300/FFF8EE/333333?text=Ergo+Mouse+View3"
+  },
+  {
+    "id": 4,
+    "name": "Mechanical Gaming Keyboard",
+    "price": 120.0,
+    "description": "Dominate your games with the Mechanical Gaming Keyboard. Responsive keys and customizable RGB lighting.",
+    "category": "Peripherals",
+    "subCategory": "Keyboards",
+    "image": "https://placehold.co/400x300/C5CDE8/333333?text=Gaming+KB+Main",
+    "image2": "https://placehold.co/400x300/D0D8EE/333333?text=Gaming+KB+View2",
+    "image3": "https://placehold.co/400x300/DAE2F3/333333?text=Gaming+KB+View3"
+  },
+  {
+    "id": 5,
+    "name": "Noise-Cancelling Headphones",
+    "price": 180.0,
+    "description": "Immerse yourself in pure audio with these noise-cancelling headphones. Crystal-clear sound and deep bass.",
+    "category": "Audio",
+    "subCategory": "Headphones",
+    "image": "https://placehold.co/400x300/D4AFB9/333333?text=NC+Headphones+Main",
+    "image2": "https://placehold.co/400x300/E0C0C8/333333?text=NC+Headphones+View2",
+    "image3": "https://placehold.co/400x300/EBCCD5/333333?text=NC+Headphones+View3"
+  },
+  {
+    "id": 6,
+    "name": "HD Webcam Pro",
+    "price": 75.0,
+    "description": "Look your best in video calls with the HD Webcam Pro. Full 1080p resolution and auto-focus.",
+    "category": "Peripherals",
+    "subCategory": "Webcams",
+    "image": "https://placehold.co/400x300/D8BFD8/333333?text=Webcam+Pro+Main",
+    "image2": "https://placehold.co/400x300/E3D0E3/333333?text=Webcam+Pro+View2",
+    "image3": "https://placehold.co/400x300/EEDDED/333333?text=Webcam+Pro+View3"
+  },
+  {
+    "id": 7,
+    "name": "Smart Home Hub",
+    "price": 99.99,
+    "description": "Control all your smart devices from one central hub. Compatible with major smart home ecosystems.",
+    "category": "Smart Home",
+    "subCategory": "Hubs",
+    "image": "https://placehold.co/400x300/A2D9CE/333333?text=Smart+Hub+Main",
+    "image2": "https://placehold.co/400x300/B0E0D8/333333?text=Smart+Hub+View2",
+    "image3": "https://placehold.co/400x300/BDF4E8/333333?text=Smart+Hub+View3"
+  },
+  {
+    "id": 8,
+    "name": "Portable Bluetooth Speaker",
+    "price": 59.99,
+    "description": "Take your music anywhere with this compact and powerful portable Bluetooth speaker. Long battery life and rich sound.",
+    "category": "Audio",
+    "subCategory": "Speakers",
+    "image": "https://placehold.co/400x300/FFABAB/333333?text=Bluetooth+Speaker+Main",
+    "image2": "https://placehold.co/400x300/FFCACA/333333?text=Bluetooth+Speaker+View2",
+    "image3": "https://placehold.co/400x300/FFEAEA/333333?text=Bluetooth+Speaker+View3"
+  },
+  {
+    "id": 9,
+    "name": "High-Speed Wi-Fi Router",
+    "price": 89.0,
+    "description": "Upgrade your network with this high-speed Wi-Fi router. Enjoy seamless streaming and online gaming.",
+    "category": "Networking",
+    "subCategory": "Routers",
+    "image": "https://placehold.co/400x300/AEC6CF/333333?text=Wi-Fi+Router+Main",
+    "image2": "https://placehold.co/400x300/BBDDE8/333333?text=Wi-Fi+Router+View2",
+    "image3": "https://placehold.co/400x300/C8EEF3/333333?text=Wi-Fi+Router+View3"
+  },
+  {
+    "id": 10,
+    "name": "27-inch 4K Monitor",
+    "price": 350.0,
+    "description": "Experience stunning visuals with this 27-inch 4K monitor. Perfect for designers and gamers.",
+    "category": "Displays",
+    "subCategory": "Monitors",
+    "image": "https://placehold.co/400x300/87CEEB/333333?text=4K+Monitor+Main",
+    "image2": "https://placehold.co/400x300/ADD8E6/333333?text=4K+Monitor+View2",
+    "image3": "https://placehold.co/400x300/B0E0E6/333333?text=4K+Monitor+View3"
+  },
+  {
+    "id": 11,
+    "name": "Wireless Charging Pad",
+    "price": 29.99,
+    "description": "Charge your devices effortlessly with this sleek wireless charging pad. Compatible with Qi-enabled phones.",
+    "category": "Accessories",
+    "subCategory": "Chargers",
+    "image": "https://placehold.co/400x300/E6E6FA/333333?text=Charger+Pad+Main",
+    "image2": "https://placehold.co/400x300/F0F0FF/333333?text=Charger+Pad+View2",
+    "image3": "https://placehold.co/400x300/FAFAFF/333333?text=Charger+Pad+View3"
+  },
+  {
+    "id": 12,
+    "name": "Gaming Laptop Pro-X",
+    "price": 1200.0,
+    "description": "Unleash ultimate gaming performance with the Gaming Laptop Pro-X. High-end GPU and fast processor.",
+    "category": "Computing",
+    "subCategory": "Laptops",
+    "image": "https://placehold.co/400x300/FF6347/333333?text=Gaming+Laptop+Main",
+    "image2": "https://placehold.co/400x300/FF7F50/333333?text=Gaming+Laptop+View2",
+    "image3": "https://placehold.co/400x300/FFA07A/333333?text=Gaming+Laptop+View3"
+  },
+  {
+    "id": 13,
+    "name": "Smart Watch Series 7",
+    "price": 329.0,
+    "description": "Stay connected and track your fitness with the Smart Watch Series 7. Advanced health monitoring features.",
+    "category": "Wearables",
+    "subCategory": "Smartwatches",
+    "image": "https://placehold.co/400x300/6A5ACD/333333?text=Smart+Watch+Main",
+    "image2": "https://placehold.co/400x300/7B68EE/333333?text=Smart+Watch+View2",
+    "image3": "https://placehold.co/400x300/8A2BE2/333333?text=Smart+Watch+View3"
+  },
+  {
+    "id": 14,
+    "name": "External Hard Drive 2TB",
+    "price": 85.0,
+    "description": "Expand your storage with this reliable 2TB external hard drive. Fast USB 3.0 connectivity.",
+    "category": "Computing",
+    "subCategory": "Storage",
+    "image": "https://placehold.co/400x300/8FBC8F/333333?text=HDD+2TB+Main",
+    "image2": "https://placehold.co/400x300/98FB98/333333?text=HDD+2TB+View2",
+    "image3": "https://placehold.co/400x300/9ACD32/333333?text=HDD+2TB+View3"
+  },
+  {
+    "id": 15,
+    "name": "USB-C Hub Multiport",
+    "price": 55.0,
+    "description": "Connect all your peripherals with this versatile USB-C hub. HDMI, USB-A, and SD card slots.",
+    "category": "Accessories",
+    "subCategory": "Adapters",
+    "image": "https://placehold.co/400x300/AFEEEE/333333?text=USB-C+Hub+Main",
+    "image2": "https://placehold.co/400x300/BBFFFF/333333?text=USB-C+Hub+View2",
+    "image3": "https://placehold.co/400x300/D0FFFF/333333?text=USB-C+Hub+View3"
+  },
+  {
+    "id": 16,
+    "name": "Wireless Gaming Headset",
+    "price": 99.0,
+    "description": "Experience immersive gaming audio with this wireless headset. Clear microphone and comfortable earcups.",
+    "category": "Audio",
+    "subCategory": "Headsets",
+    "image": "https://placehold.co/400x300/FFB6C1/333333?text=Gaming+Headset+Main",
+    "image2": "https://placehold.co/400x300/FFC0CB/333333?text=Gaming+Headset+View2",
+    "image3": "https://placehold.co/400x300/FFD1DC/333333?text=Gaming+Headset+View3"
+  },
+  {
+    "id": 17,
+    "name": "Compact Desktop PC",
+    "price": 650.0,
+    "description": "Powerful performance in a small form factor. Ideal for home office or entertainment.",
+    "category": "Computing",
+    "subCategory": "Desktops",
+    "image": "https://placehold.co/400x300/B0E0E6/333333?text=Compact+PC+Main",
+    "image2": "https://placehold.co/400x300/C0F0F6/333333?text=Compact+PC+View2",
+    "image3": "https://placehold.co/400x300/D0F8FB/333333?text=Compact+PC+View3"
+  },
+  {
+    "id": 18,
+    "name": "Soundbar with Subwoofer",
+    "price": 280.0,
+    "description": "Enhance your TV audio with this powerful soundbar and wireless subwoofer. Cinematic sound experience.",
+    "category": "Audio",
+    "subCategory": "Soundbars",
+    "image": "https://placehold.co/400x300/8A2BE2/333333?text=Soundbar+Main",
+    "image2": "https://placehold.co/400x300/9370DB/333333?text=Soundbar+View2",
+    "image3": "https://placehold.co/400x300/BA55D3/333333?text=Soundbar+View3"
+  },
+  {
+    "id": 19,
+    "name": "Mesh Wi-Fi System",
+    "price": 199.0,
+    "description": "Eliminate dead zones with this whole-home mesh Wi-Fi system. Seamless coverage everywhere.",
+    "category": "Networking",
+    "subCategory": "Mesh Systems",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=Mesh+Wi-Fi+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=Mesh+Wi-Fi+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=Mesh+Wi-Fi+View3"
+  },
+  {
+    "id": 20,
+    "name": "Portable Projector Mini",
+    "price": 160.0,
+    "description": "Enjoy movies anywhere with this compact portable projector. Connect via HDMI or USB.",
+    "category": "Displays",
+    "subCategory": "Projectors",
+    "image": "https://placehold.co/400x300/FFDAB9/333333?text=Mini+Projector+Main",
+    "image2": "https://placehold.co/400x300/FFE4B5/333333?text=Mini+Projector+View2",
+    "image3": "https://placehold.co/400x300/FFF0F5/333333?text=Mini+Projector+View3"
+  },
+  {
+    "id": 21,
+    "name": "Smart Plug with Energy Monitoring",
+    "price": 18.0,
+    "description": "Control your appliances remotely and monitor energy usage with this smart plug.",
+    "category": "Smart Home",
+    "subCategory": "Smart Plugs",
+    "image": "https://placehold.co/400x300/E0FFFF/333333?text=Smart+Plug+Main",
+    "image2": "https://placehold.co/400x300/F0FFFF/333333?text=Smart+Plug+View2",
+    "image3": "https://placehold.co/400x300/F5FFFA/333333?text=Smart+Plug+View3"
+  },
+  {
+    "id": 22,
+    "name": "USB Flash Drive 128GB",
+    "price": 25.0,
+    "description": "Store and transfer your files quickly with this 128GB USB flash drive. Durable and compact.",
+    "category": "Storage",
+    "subCategory": "Flash Drives",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=USB+Drive+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=USB+Drive+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=USB+Drive+View3"
+  },
+  {
+    "id": 23,
+    "name": "Gaming Chair Ergonomic",
+    "price": 250.0,
+    "description": "Stay comfortable during long gaming sessions with this ergonomic gaming chair. Adjustable and supportive.",
+    "category": "Furniture",
+    "subCategory": "Chairs",
+    "image": "https://placehold.co/400x300/E6B0B6/333333?text=Gaming+Chair+Main",
+    "image2": "https://placehold.co/400x300/ECC4CA/333333?text=Gaming+Chair+View2",
+    "image3": "https://placehold.co/400x300/F2D8DE/333333?text=Gaming+Chair+View3"
+  },
+  {
+    "id": 24,
+    "name": "Bluetooth Earbuds True Wireless",
+    "price": 79.0,
+    "description": "Enjoy true wireless freedom with these comfortable Bluetooth earbuds. Great sound and long battery life.",
+    "category": "Audio",
+    "subCategory": "Earbuds",
+    "image": "https://placehold.co/400x300/C8A2C8/333333?text=True+Wireless+Main",
+    "image2": "https://placehold.co/400x300/DDA0DD/333333?text=True+Wireless+View2",
+    "image3": "https://placehold.co/400x300/E8CCE8/333333?text=True+Wireless+View3"
+  },
+  {
+    "id": 25,
+    "name": "Portable Power Bank 20000mAh",
+    "price": 35.0,
+    "description": "Never run out of battery with this high-capacity 20000mAh power bank. Fast charging for multiple devices.",
+    "category": "Accessories",
+    "subCategory": "Power Banks",
+    "image": "https://placehold.co/400x300/E0BBE4/333333?text=Power+Bank+Main",
+    "image2": "https://placehold.co/400x300/EFCCE0/333333?text=Power+Bank+View2",
+    "image3": "https://placehold.co/400x300/F4DDEB/333333?text=Power+Bank+View3"
+  },
+  {
+    "id": 26,
+    "name": "Smart LED Light Strip",
+    "price": 40.0,
+    "description": "Add ambient lighting to any room with this smart LED light strip. Customizable colors and effects.",
+    "category": "Smart Home",
+    "subCategory": "Lighting",
+    "image": "https://placehold.co/400x300/F08080/333333?text=LED+Strip+Main",
+    "image2": "https://placehold.co/400x300/F59595/333333?text=LED+Strip+View2",
+    "image3": "https://placehold.co/400x300/FAAFAF/333333?text=LED+Strip+View3"
+  },
+  {
+    "id": 27,
+    "name": "Drawing Tablet with Pen",
+    "price": 90.0,
+    "description": "Unleash your creativity with this drawing tablet and pressure-sensitive pen. Ideal for digital artists.",
+    "category": "Peripherals",
+    "subCategory": "Tablets",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=Drawing+Tablet+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=Drawing+Tablet+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=Drawing+Tablet+View3"
+  },
+  {
+    "id": 28,
+    "name": "Mini PC Stick",
+    "price": 180.0,
+    "description": "Transform any display into a computer with this mini PC stick. Portable and powerful.",
+    "category": "Computing",
+    "subCategory": "Mini PCs",
+    "image": "https://placehold.co/400x300/AFEEEE/333333?text=PC+Stick+Main",
+    "image2": "https://placehold.co/400x300/BBFFFF/333333?text=PC+Stick+View2",
+    "image3": "https://placehold.co/400x300/D0FFFF/333333?text=PC+Stick+View3"
+  },
+  {
+    "id": 29,
+    "name": "Professional Studio Microphone",
+    "price": 110.0,
+    "description": "Capture pristine audio with this professional studio microphone. Perfect for podcasting and music.",
+    "category": "Audio",
+    "subCategory": "Microphones",
+    "image": "https://placehold.co/400x300/98FB98/333333?text=Studio+Mic+Main",
+    "image2": "https://placehold.co/400x300/A2F8A2/333333?text=Studio+Mic+View2",
+    "image3": "https://placehold.co/400x300/B0FFB0/333333?text=Studio+Mic+View3"
+  },
+  {
+    "id": 30,
+    "name": "Network Attached Storage (NAS)",
+    "price": 300.0,
+    "description": "Create your private cloud with this powerful NAS device. Centralized storage for your files.",
+    "category": "Networking",
+    "subCategory": "Storage Devices",
+    "image": "https://placehold.co/400x300/B0C4DE/333333?text=NAS+Main",
+    "image2": "https://placehold.co/400x300/C0D0E8/333333?text=NAS+View2",
+    "image3": "https://placehold.co/400x300/D0DCEF/333333?text=NAS+View3"
+  },
+  {
+    "id": 31,
+    "name": "Curved Gaming Monitor",
+    "price": 450.0,
+    "description": "Immersive gameplay with this curved gaming monitor. High refresh rate and vibrant colors.",
+    "category": "Displays",
+    "subCategory": "Monitors",
+    "image": "https://placehold.co/400x300/D8BFD8/333333?text=Curved+Monitor+Main",
+    "image2": "https://placehold.co/400x300/E3D0E3/333333?text=Curved+Monitor+View2",
+    "image3": "https://placehold.co/400x300/EEDDED/333333?text=Curved+Monitor+View3"
+  },
+  {
+    "id": 32,
+    "name": "Universal Laptop Docking Station",
+    "price": 130.0,
+    "description": "Expand your laptop's connectivity with this universal docking station. Multiple ports for all your needs.",
+    "category": "Accessories",
+    "subCategory": "Docking Stations",
+    "image": "https://placehold.co/400x300/FFDAB9/333333?text=Docking+Station+Main",
+    "image2": "https://placehold.co/400x300/FFE4B5/333333?text=Docking+Station+View2",
+    "image3": "https://placehold.co/400x300/FFF0F5/333333?text=Docking+Station+View3"
+  },
+  {
+    "id": 33,
+    "name": "Smart Thermostat",
+    "price": 140.0,
+    "description": "Save energy and stay comfortable with this smart thermostat. Control from anywhere via app.",
+    "category": "Smart Home",
+    "subCategory": "Climate Control",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=Smart+Thermostat+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=Smart+Thermostat+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=Smart+Thermostat+View3"
+  },
+  {
+    "id": 34,
+    "name": "VR Headset Premium",
+    "price": 599.0,
+    "description": "Step into virtual worlds with the VR Headset Premium. Immersive visuals and tracking.",
+    "category": "Gaming",
+    "subCategory": "VR",
+    "image": "https://placehold.co/400x300/8A2BE2/333333?text=VR+Headset+Main",
+    "image2": "https://placehold.co/400x300/9370DB/333333?text=VR+Headset+View2",
+    "image3": "https://placehold.co/400x300/BA55D3/333333?text=VR+Headset+View3"
+  },
+  {
+    "id": 35,
+    "name": "Bluetooth Car Adapter",
+    "price": 25.0,
+    "description": "Stream music and make hands-free calls in your car with this Bluetooth adapter.",
+    "category": "Automotive",
+    "subCategory": "Audio Adapters",
+    "image": "https://placehold.co/400x300/F0F8FF/333333?text=Car+Adapter+Main",
+    "image2": "https://placehold.co/400x300/F5FCFF/333333?text=Car+Adapter+View2",
+    "image3": "https://placehold.co/400x300/FBFCFF/333333?text=Car+Adapter+View3"
+  },
+  {
+    "id": 36,
+    "name": "Portable Photo Printer",
+    "price": 95.0,
+    "description": "Print instant photos from your phone with this compact portable printer.",
+    "category": "Photography",
+    "subCategory": "Printers",
+    "image": "https://placehold.co/400x300/E0FFFF/333333?text=Photo+Printer+Main",
+    "image2": "https://placehold.co/400x300/F0FFFF/333333?text=Photo+Printer+View2",
+    "image3": "https://placehold.co/400x300/F5FFFA/333333?text=Photo+Printer+View3"
+  },
+  {
+    "id": 37,
+    "name": "Smart Doorbell Camera",
+    "price": 160.0,
+    "description": "See who's at your door from anywhere with this smart doorbell camera. Two-way audio and motion detection.",
+    "category": "Smart Home",
+    "subCategory": "Security Cameras",
+    "image": "https://placehold.co/400x300/A2D9CE/333333?text=Doorbell+Cam+Main",
+    "image2": "https://placehold.co/400x300/B0E0D8/333333?text=Doorbell+Cam+View2",
+    "image3": "https://placehold.co/400x300/BDF4E8/333333?text=Doorbell+Cam+View3"
+  },
+  {
+    "id": 38,
+    "name": "High-Performance CPU Cooler",
+    "price": 70.0,
+    "description": "Keep your CPU cool under heavy loads with this high-performance cooler. Quiet and efficient.",
+    "category": "Computing",
+    "subCategory": "Cooling",
+    "image": "https://placehold.co/400x300/D4AFB9/333333?text=CPU+Cooler+Main",
+    "image2": "https://placehold.co/400x300/E0C0C8/333333?text=CPU+Cooler+View2",
+    "image3": "https://placehold.co/400x300/EBCCD5/333333?text=CPU+Cooler+View3"
+  },
+  {
+    "id": 39,
+    "name": "Gaming Desktop PC (Customizable)",
+    "price": 1500.0,
+    "description": "Build your dream gaming PC with this customizable desktop. Top-tier components for ultimate performance.",
+    "category": "Computing",
+    "subCategory": "Desktops",
+    "image": "https://placehold.co/400x300/FF6347/333333?text=Custom+Gaming+PC+Main",
+    "image2": "https://placehold.co/400x300/FF7F50/333333?text=Custom+Gaming+PC+View2",
+    "image3": "https://placehold.co/400x300/FFA07A/333333?text=Custom+Gaming+PC+View3"
+  },
+  {
+    "id": 40,
+    "name": "Professional Studio Monitor Speakers",
+    "price": 400.0,
+    "description": "Achieve accurate sound reproduction with these professional studio monitor speakers. Ideal for music production.",
+    "category": "Audio",
+    "subCategory": "Studio Monitors",
+    "image": "https://placehold.co/400x300/A0D2EB/333333?text=Studio+Monitors+Main",
+    "image2": "https://placehold.co/400x300/ADD8E6/333333?text=Studio+Monitors+View2",
+    "image3": "https://placehold.co/400x300/B0E0E6/333333?text=Studio+Monitors+View3"
+  },
+  {
+    "id": 41,
+    "name": "High-Speed Ethernet Cable (Cat 7)",
+    "price": 15.0,
+    "description": "Ensure stable and fast network connections with this Cat 7 Ethernet cable.",
+    "category": "Networking",
+    "subCategory": "Cables",
+    "image": "https://placehold.co/400x300/C5CDE8/333333?text=Ethernet+Cable+Main",
+    "image2": "https://placehold.co/400x300/D0D8EE/333333?text=Ethernet+Cable+View2",
+    "image3": "https://placehold.co/400x300/DAE2F3/333333?text=Ethernet+Cable+View3"
+  },
+  {
+    "id": 42,
+    "name": "Portable Monitor USB-C",
+    "price": 200.0,
+    "description": "Add a second screen to your laptop with this lightweight portable monitor. USB-C connectivity for power and video.",
+    "category": "Displays",
+    "subCategory": "Monitors",
+    "image": "https://placehold.co/400x300/87CEEB/333333?text=Portable+Monitor+Main",
+    "image2": "https://placehold.co/400x300/ADD8E6/333333?text=Portable+Monitor+View2",
+    "image3": "https://placehold.co/400x300/B0E0E6/333333?text=Portable+Monitor+View3"
+  },
+  {
+    "id": 43,
+    "name": "Laptop Cooling Pad",
+    "price": 30.0,
+    "description": "Prevent overheating and improve laptop performance with this effective cooling pad.",
+    "category": "Accessories",
+    "subCategory": "Cooling",
+    "image": "https://placehold.co/400x300/FFDDC1/333333?text=Cooling+Pad+Main",
+    "image2": "https://placehold.co/400x300/FFEEDD/333333?text=Cooling+Pad+View2",
+    "image3": "https://placehold.co/400x300/FFF8EE/333333?text=Cooling+Pad+View3"
+  },
+  {
+    "id": 44,
+    "name": "Smart Lighting Kit (Bulbs + Hub)",
+    "price": 110.0,
+    "description": "Transform your home lighting with this smart lighting kit. Dimmable and color-changing bulbs.",
+    "category": "Smart Home",
+    "subCategory": "Lighting",
+    "image": "https://placehold.co/400x300/E0FFFF/333333?text=Smart+Light+Kit+Main",
+    "image2": "https://placehold.co/400x300/F0FFFF/333333?text=Smart+Light+Kit+View2",
+    "image3": "https://placehold.co/400x300/F5FFFA/333333?text=Smart+Light+Kit+View3"
+  },
+  {
+    "id": 45,
+    "name": "Graphic Tablet with Screen",
+    "price": 480.0,
+    "description": "Draw directly on screen with this professional graphic tablet. High resolution and color accuracy.",
+    "category": "Peripherals",
+    "subCategory": "Tablets",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=Graphic+Tablet+Screen+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=Graphic+Tablet+Screen+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=Graphic+Tablet+Screen+View3"
+  },
+  {
+    "id": 46,
+    "name": "Desktop RAM Kit 32GB DDR4",
+    "price": 95.0,
+    "description": "Boost your desktop's performance with this 32GB DDR4 RAM kit. Ideal for multitasking and gaming.",
+    "category": "Computing",
+    "subCategory": "RAM",
+    "image": "https://placehold.co/400x300/B2D5D8/333333?text=32GB+DDR4+RAM+Main",
+    "image2": "https://placehold.co/400x300/C0E0E3/333333?text=32GB+DDR4+RAM+View2",
+    "image3": "https://placehold.co/400x300/DFF4F6/333333?text=32GB+DDR4+RAM+View3"
+  },
+  {
+    "id": 47,
+    "name": "Portable SSD 1TB",
+    "price": 110.0,
+    "description": "Ultra-portable and durable 1TB SSD for fast external storage.",
+    "category": "Computing",
+    "subCategory": "Storage",
+    "image": "https://placehold.co/400x300/A0D2EB/333333?text=Portable+SSD+1TB+Main",
+    "image2": "https://placehold.co/400x300/ADD8E6/333333?text=Portable+SSD+1TB+View2",
+    "image3": "https://placehold.co/400x300/B0E0E6/333333?text=Portable+SSD+1TB+View3"
+  },
+  {
+    "id": 48,
+    "name": "Vertical Ergonomic Mouse",
+    "price": 38.0,
+    "description": "Reduce wrist strain with this innovative vertical ergonomic mouse.",
+    "category": "Peripherals",
+    "subCategory": "Mice",
+    "image": "https://placehold.co/400x300/FFDDC1/333333?text=Vertical+Mouse+Main",
+    "image2": "https://placehold.co/400x300/FFEEDD/333333?text=Vertical+Mouse+View2",
+    "image3": "https://placehold.co/400x300/FFF8EE/333333?text=Vertical+Mouse+View3"
+  },
+  {
+    "id": 49,
+    "name": "Silent Membrane Keyboard",
+    "price": 60.0,
+    "description": "Work quietly with this silent membrane keyboard. Soft keystrokes and durable design.",
+    "category": "Peripherals",
+    "subCategory": "Keyboards",
+    "image": "https://placehold.co/400x300/C5CDE8/333333?text=Silent+Keyboard+Main",
+    "image2": "https://placehold.co/400x300/D0D8EE/333333?text=Silent+Keyboard+View2",
+    "image3": "https://placehold.co/400x300/DAE2F3/333333?text=Silent+Keyboard+View3"
+  },
+  {
+    "id": 50,
+    "name": "On-Ear Wireless Headphones",
+    "price": 65.0,
+    "description": "Lightweight and comfortable on-ear wireless headphones with clear audio.",
+    "category": "Audio",
+    "subCategory": "Headphones",
+    "image": "https://placehold.co/400x300/D4AFB9/333333?text=On-Ear+Headphones+Main",
+    "image2": "https://placehold.co/400x300/E0C0C8/333333?text=On-Ear+Headphones+View2",
+    "image3": "https://placehold.co/400x300/EBCCD5/333333?text=On-Ear+Headphones+View3"
+  },
+  {
+    "id": 51,
+    "name": "Streaming Webcam 1080p",
+    "price": 80.0,
+    "description": "Designed for streamers, this 1080p webcam offers excellent video quality.",
+    "category": "Peripherals",
+    "subCategory": "Webcams",
+    "image": "https://placehold.co/400x300/D8BFD8/333333?text=Streaming+Webcam+Main",
+    "image2": "https://placehold.co/400x300/E3D0E3/333333?text=Streaming+Webcam+View2",
+    "image3": "https://placehold.co/400x300/EEDDED/333333?text=Streaming+Webcam+View3"
+  },
+  {
+    "id": 52,
+    "name": "Smart Door Lock with Keypad",
+    "price": 190.0,
+    "description": "Enhance your home security with this smart door lock. Keyless entry and remote access.",
+    "category": "Smart Home",
+    "subCategory": "Security",
+    "image": "https://placehold.co/400x300/A2D9CE/333333?text=Smart+Door+Lock+Main",
+    "image2": "https://placehold.co/400x300/B0E0D8/333333?text=Smart+Door+Lock+View2",
+    "image3": "https://placehold.co/400x300/BDF4E8/333333?text=Smart+Door+Lock+View3"
+  },
+  {
+    "id": 53,
+    "name": "Bookshelf Speakers Passive",
+    "price": 120.0,
+    "description": "High-fidelity sound from these passive bookshelf speakers. Requires an amplifier.",
+    "category": "Audio",
+    "subCategory": "Speakers",
+    "image": "https://placehold.co/400x300/FFABAB/333333?text=Bookshelf+Speakers+Main",
+    "image2": "https://placehold.co/400x300/FFCACA/333333?text=Bookshelf+Speakers+View2",
+    "image3": "https://placehold.co/400x300/FFEAEA/333333?text=Bookshelf+Speakers+View3"
+  },
+  {
+    "id": 54,
+    "name": "Gaming Wi-Fi Router AX6000",
+    "price": 240.0,
+    "description": "Optimized for gaming, this AX6000 router delivers ultra-low latency and high speeds.",
+    "category": "Networking",
+    "subCategory": "Routers",
+    "image": "https://placehold.co/400x300/AEC6CF/333333?text=Gaming+Router+Main",
+    "image2": "https://placehold.co/400x300/BBDDE8/333333?text=Gaming+Router+View2",
+    "image3": "https://placehold.co/400x300/C8EEF3/333333?text=Gaming+Router+View3"
+  },
+  {
+    "id": 55,
+    "name": "32-inch QHD Gaming Monitor",
+    "price": 400.0,
+    "description": "Immersive QHD visuals with a high refresh rate for competitive gaming.",
+    "category": "Displays",
+    "subCategory": "Monitors",
+    "image": "https://placehold.co/400x300/87CEEB/333333?text=QHD+Gaming+Monitor+Main",
+    "image2": "https://placehold.co/400x300/ADD8E6/333333?text=QHD+Gaming+Monitor+View2",
+    "image3": "https://placehold.co/400x300/B0E0E6/333333?text=QHD+Gaming+Monitor+View3"
+  },
+  {
+    "id": 56,
+    "name": "Multi-Port USB Charger Station",
+    "price": 40.0,
+    "description": "Charge multiple devices simultaneously with this powerful USB charger station.",
+    "category": "Accessories",
+    "subCategory": "Chargers",
+    "image": "https://placehold.co/400x300/E6E6FA/333333?text=Multiport+Charger+Main",
+    "image2": "https://placehold.co/400x300/F0F0FF/333333?text=Multiport+Charger+View2",
+    "image3": "https://placehold.co/400x300/FAFAFF/333333?text=Multiport+Charger+View3"
+  },
+  {
+    "id": 57,
+    "name": "Chromebook Go",
+    "price": 299.0,
+    "description": "Lightweight and fast, the Chromebook Go is perfect for everyday computing and productivity.",
+    "category": "Computing",
+    "subCategory": "Laptops",
+    "image": "https://placehold.co/400x300/B0C4DE/333333?text=Chromebook+Go+Main",
+    "image2": "https://placehold.co/400x300/C0D0E8/333333?text=Chromebook+Go+View2",
+    "image3": "https://placehold.co/400x300/D0DCEF/333333?text=Chromebook+Go+View3"
+  },
+  {
+    "id": 58,
+    "name": "Fitness Tracker with Heart Rate",
+    "price": 80.0,
+    "description": "Track your activity, sleep, and heart rate with this advanced fitness tracker.",
+    "category": "Wearables",
+    "subCategory": "Fitness Trackers",
+    "image": "https://placehold.co/400x300/6A5ACD/333333?text=Fitness+Tracker+Main",
+    "image2": "https://placehold.co/400x300/7B68EE/333333?text=Fitness+Tracker+View2",
+    "image3": "https://placehold.co/400x300/8A2BE2/333333?text=Fitness+Tracker+View3"
+  },
+  {
+    "id": 59,
+    "name": "M.2 NVMe SSD 500GB",
+    "price": 70.0,
+    "description": "Experience blazing-fast boot times and application loading with this 500GB NVMe SSD.",
+    "category": "Computing",
+    "subCategory": "Storage",
+    "image": "https://placehold.co/400x300/8FBC8F/333333?text=NVMe+SSD+500GB+Main",
+    "image2": "https://placehold.co/400x300/98FB98/333333?text=NVMe+SSD+500GB+View2",
+    "image3": "https://placehold.co/400x300/9ACD32/333333?text=NVMe+SSD+500GB+View3"
+  },
+  {
+    "id": 60,
+    "name": "USB-C to HDMI Adapter",
+    "price": 20.0,
+    "description": "Connect your USB-C device to an HDMI display with this simple adapter.",
+    "category": "Accessories",
+    "subCategory": "Adapters",
+    "image": "https://placehold.co/400x300/AFEEEE/333333?text=USB-C+HDMI+Main",
+    "image2": "https://placehold.co/400x300/BBFFFF/333333?text=USB-C+HDMI+View2",
+    "image3": "https://placehold.co/400x300/D0FFFF/333333?text=USB-C+HDMI+View3"
+  },
+  {
+    "id": 61,
+    "name": "Over-Ear Bluetooth Headphones",
+    "price": 90.0,
+    "description": "Comfortable over-ear headphones with rich sound and long-lasting Bluetooth connectivity.",
+    "category": "Audio",
+    "subCategory": "Headphones",
+    "image": "https://placehold.co/400x300/FFB6C1/333333?text=Over-Ear+BT+Headphones+Main",
+    "image2": "https://placehold.co/400x300/FFC0CB/333333?text=Over-Ear+BT+Headphones+View2",
+    "image3": "https://placehold.co/400x300/FFD1DC/333333?text=Over-Ear+BT+Headphones+View3"
+  },
+  {
+    "id": 62,
+    "name": "All-in-One Desktop PC",
+    "price": 850.0,
+    "description": "Sleek and space-saving all-in-one desktop PC with a vibrant display.",
+    "category": "Computing",
+    "subCategory": "Desktops",
+    "image": "https://placehold.co/400x300/B0E0E6/333333?text=All-in-One+PC+Main",
+    "image2": "https://placehold.co/400x300/C0F0F6/333333?text=All-in-One+PC+View2",
+    "image3": "https://placehold.co/400x300/D0F8FB/333333?text=All-in-One+PC+View3"
+  },
+  {
+    "id": 63,
+    "name": "Compact Soundbar",
+    "price": 120.0,
+    "description": "Boost your TV sound without taking up much space with this compact soundbar.",
+    "category": "Audio",
+    "subCategory": "Soundbars",
+    "image": "https://placehold.co/400x300/8A2BE2/333333?text=Compact+Soundbar+Main",
+    "image2": "https://placehold.co/400x300/9370DB/333333?text=Compact+Soundbar+View2",
+    "image3": "https://placehold.co/400x300/BA55D3/333333?text=Compact+Soundbar+View3"
+  },
+  {
+    "id": 64,
+    "name": "Wi-Fi Extender Dual Band",
+    "price": 45.0,
+    "description": "Extend your Wi-Fi coverage to every corner of your home with this dual-band extender.",
+    "category": "Networking",
+    "subCategory": "Extenders",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=Wi-Fi+Extender+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=Wi-Fi+Extender+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=Wi-Fi+Extender+View3"
+  },
+  {
+    "id": 65,
+    "name": "Portable LED Projector",
+    "price": 190.0,
+    "description": "Enjoy movies and presentations on the go with this bright portable LED projector.",
+    "category": "Displays",
+    "subCategory": "Projectors",
+    "image": "https://placehold.co/400x300/FFDAB9/333333?text=Portable+LED+Projector+Main",
+    "image2": "https://placehold.co/400x300/FFE4B5/333333?text=Portable+LED+Projector+View2",
+    "image3": "https://placehold.co/400x300/FFF0F5/333333?text=Portable+LED+Projector+View3"
+  },
+  {
+    "id": 66,
+    "name": "Smart Security Camera Indoor",
+    "price": 60.0,
+    "description": "Keep an eye on your home with this indoor smart security camera. Two-way audio and night vision.",
+    "category": "Smart Home",
+    "subCategory": "Security Cameras",
+    "image": "https://placehold.co/400x300/E0FFFF/333333?text=Indoor+Security+Cam+Main",
+    "image2": "https://placehold.co/400x300/F0FFFF/333333?text=Indoor+Security+Cam+View2",
+    "image3": "https://placehold.co/400x300/F5FFFA/333333?text=Indoor+Security+Cam+View3"
+  },
+  {
+    "id": 67,
+    "name": "USB-C to USB-A Adapter",
+    "price": 10.0,
+    "description": "Convert USB-C to USB-A for compatibility with older devices.",
+    "category": "Accessories",
+    "subCategory": "Adapters",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=USB-C+to+A+Adapter+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=USB-C+to+A+Adapter+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=USB-C+to+A+Adapter+View3"
+  },
+  {
+    "id": 68,
+    "name": "Gaming Desk with RGB Lighting",
+    "price": 180.0,
+    "description": "Elevate your gaming setup with this stylish gaming desk featuring integrated RGB lighting.",
+    "category": "Furniture",
+    "subCategory": "Desks",
+    "image": "https://placehold.co/400x300/E6B0B6/333333?text=Gaming+Desk+Main",
+    "image2": "https://placehold.co/400x300/ECC4CA/333333?text=Gaming+Desk+View2",
+    "image3": "https://placehold.co/400x300/F2D8DE/333333?text=Gaming+Desk+View3"
+  },
+  {
+    "id": 69,
+    "name": "Open-Back Studio Headphones",
+    "price": 220.0,
+    "description": "For critical listening and mixing, these open-back studio headphones offer a wide soundstage.",
+    "category": "Audio",
+    "subCategory": "Headphones",
+    "image": "https://placehold.co/400x300/C8A2C8/333333?text=Open-Back+Headphones+Main",
+    "image2": "https://placehold.co/400x300/DDA0DD/333333?text=Open-Back+Headphones+View2",
+    "image3": "https://placehold.co/400x300/E8CCE8/333333?text=Open-Back+Headphones+View3"
+  },
+  {
+    "id": 70,
+    "name": "GaN Fast Wall Charger 65W",
+    "price": 45.0,
+    "description": "Charge your laptop and phone quickly with this compact 65W GaN wall charger.",
+    "category": "Accessories",
+    "subCategory": "Chargers",
+    "image": "https://placehold.co/400x300/E0BBE4/333333?text=GaN+Charger+Main",
+    "image2": "https://placehold.co/400x300/EFCCE0/333333?text=GaN+Charger+View2",
+    "image3": "https://placehold.co/400x300/F4DDEB/333333?text=GaN+Charger+View3"
+  },
+  {
+    "id": 71,
+    "name": "Smart Light Bulb E27",
+    "price": 15.0,
+    "description": "Control your lighting from your phone with this smart E27 light bulb. Dimmable and tunable white.",
+    "category": "Smart Home",
+    "subCategory": "Lighting",
+    "image": "https://placehold.co/400x300/F08080/333333?text=Smart+Bulb+E27+Main",
+    "image2": "https://placehold.co/400x300/F59595/333333?text=Smart+Bulb+E27+View2",
+    "image3": "https://placehold.co/400x300/FAAFAF/333333?text=Smart+Bulb+E27+View3"
+  },
+  {
+    "id": 72,
+    "name": "Drawing Monitor 16-inch",
+    "price": 380.0,
+    "description": "A responsive drawing monitor with a vibrant display for professional digital art.",
+    "category": "Peripherals",
+    "subCategory": "Monitors",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=Drawing+Monitor+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=Drawing+Monitor+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=Drawing+Monitor+View3"
+  },
+  {
+    "id": 73,
+    "name": "External Blu-ray Drive",
+    "price": 70.0,
+    "description": "Play and burn Blu-ray discs with this external drive. USB powered.",
+    "category": "Computing",
+    "subCategory": "Optical Drives",
+    "image": "https://placehold.co/400x300/AFEEEE/333333?text=Blu-ray+Drive+Main",
+    "image2": "https://placehold.co/400x300/BBFFFF/333333?text=Blu-ray+Drive+View2",
+    "image3": "https://placehold.co/400x300/D0FFFF/333333?text=Blu-ray+Drive+View3"
+  },
+  {
+    "id": 74,
+    "name": "USB Condenser Microphone",
+    "price": 55.0,
+    "description": "Easy to use USB condenser microphone for clear recordings and online calls.",
+    "category": "Audio",
+    "subCategory": "Microphones",
+    "image": "https://placehold.co/400x300/98FB98/333333?text=USB+Condenser+Mic+Main",
+    "image2": "https://placehold.co/400x300/A2F8A2/333333?text=USB+Condenser+Mic+View2",
+    "image3": "https://placehold.co/400x300/B0FFB0/333333?text=USB+Condenser+Mic+View3"
+  },
+  {
+    "id": 75,
+    "name": "Network Switch 8-Port Gigabit",
+    "price": 50.0,
+    "description": "Expand your wired network with this 8-port Gigabit Ethernet switch.",
+    "category": "Networking",
+    "subCategory": "Switches",
+    "image": "https://placehold.co/400x300/B0C4DE/333333?text=Network+Switch+Main",
+    "image2": "https://placehold.co/400x300/C0D0E8/333333?text=Network+Switch+View2",
+    "image3": "https://placehold.co/400x300/D0DCEF/333333?text=Network+Switch+View3"
+  },
+  {
+    "id": 76,
+    "name": "Ultra-Wide Gaming Monitor",
+    "price": 600.0,
+    "description": "Experience an expansive view with this ultra-wide gaming monitor. Perfect for immersive gameplay.",
+    "category": "Displays",
+    "subCategory": "Monitors",
+    "image": "https://placehold.co/400x300/D8BFD8/333333?text=Ultrawide+Monitor+Main",
+    "image2": "https://placehold.co/400x300/E3D0E3/333333?text=Ultrawide+Monitor+View2",
+    "image3": "https://placehold.co/400x300/EEDDED/333333?text=Ultrawide+Monitor+View3"
+  },
+  {
+    "id": 77,
+    "name": "Laptop Stand with Fan",
+    "price": 28.0,
+    "description": "Improve ergonomics and cooling for your laptop with this adjustable stand with an integrated fan.",
+    "category": "Accessories",
+    "subCategory": "Stands",
+    "image": "https://placehold.co/400x300/FFDAB9/333333?text=Laptop+Stand+Main",
+    "image2": "https://placehold.co/400x300/FFE4B5/333333?text=Laptop+Stand+View2",
+    "image3": "https://placehold.co/400x300/FFF0F5/333333?text=Laptop+Stand+View3"
+  },
+  {
+    "id": 78,
+    "name": "Smart Security System Starter Kit",
+    "price": 250.0,
+    "description": "Comprehensive smart security with motion sensors, door/window sensors, and a central hub.",
+    "category": "Smart Home",
+    "subCategory": "Security Systems",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=Smart+Security+Kit+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=Smart+Security+Kit+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=Smart+Security+Kit+View3"
+  },
+  {
+    "id": 79,
+    "name": "Gaming Console Bundle",
+    "price": 499.0,
+    "description": "Get started with gaming with this console bundle, including a popular console and game.",
+    "category": "Gaming",
+    "subCategory": "Consoles",
+    "image": "https://placehold.co/400x300/8A2BE2/333333?text=Gaming+Console+Main",
+    "image2": "https://placehold.co/400x300/9370DB/333333?text=Gaming+Console+View2",
+    "image3": "https://placehold.co/400x300/BA55D3/333333?text=Gaming+Console+View3"
+  },
+  {
+    "id": 80,
+    "name": "Wireless Charging Mouse Pad",
+    "price": 35.0,
+    "description": "Charge your phone while you work or game with this integrated wireless charging mouse pad.",
+    "category": "Accessories",
+    "subCategory": "Charging Pads",
+    "image": "https://placehold.co/400x300/F0F8FF/333333?text=Wireless+Mousepad+Main",
+    "image2": "https://placehold.co/400x300/F5FCFF/333333?text=Wireless+Mousepad+View2",
+    "image3": "https://placehold.co/400x300/FBFCFF/333333?text=Wireless+Mousepad+View3"
+  },
+  {
+    "id": 81,
+    "name": "Action Camera 4K",
+    "price": 200.0,
+    "description": "Capture all your adventures in stunning 4K with this durable action camera.",
+    "category": "Photography",
+    "subCategory": "Cameras",
+    "image": "https://placehold.co/400x300/E0FFFF/333333?text=Action+Cam+Main",
+    "image2": "https://placehold.co/400x300/F0FFFF/333333?text=Action+Cam+View2",
+    "image3": "https://placehold.co/400x300/F5FFFA/333333?text=Action+Cam+View3"
+  },
+  {
+    "id": 82,
+    "name": "Smart Water Leak Detector",
+    "price": 30.0,
+    "description": "Receive instant alerts on your phone if a water leak is detected with this smart sensor.",
+    "category": "Smart Home",
+    "subCategory": "Sensors",
+    "image": "https://placehold.co/400x300/A2D9CE/333333?text=Leak+Detector+Main",
+    "image2": "https://placehold.co/400x300/B0E0D8/333333?text=Leak+Detector+View2",
+    "image3": "https://placehold.co/400x300/BDF4E8/333333?text=Leak+Detector+View3"
+  },
+  {
+    "id": 83,
+    "name": "Gaming Motherboard Z790",
+    "price": 280.0,
+    "description": "Build a powerful gaming PC with this feature-rich Z790 gaming motherboard.",
+    "category": "Computing",
+    "subCategory": "Motherboards",
+    "image": "https://placehold.co/400x300/D4AFB9/333333?text=Gaming+Motherboard+Main",
+    "image2": "https://placehold.co/400x300/E0C0C8/333333?text=Gaming+Motherboard+View2",
+    "image3": "https://placehold.co/400x300/EBCCD5/333333?text=Gaming+Motherboard+View3"
+  },
+  {
+    "id": 84,
+    "name": "Portable Record Player",
+    "price": 85.0,
+    "description": "Enjoy your vinyl collection anywhere with this stylish portable record player.",
+    "category": "Audio",
+    "subCategory": "Turntables",
+    "image": "https://placehold.co/400x300/FF6347/333333?text=Record+Player+Main",
+    "image2": "https://placehold.co/400x300/FF7F50/333333?text=Record+Player+View2",
+    "image3": "https://placehold.co/400x300/FFA07A/333333?text=Record+Player+View3"
+  },
+  {
+    "id": 85,
+    "name": "Powerline Adapter Kit",
+    "price": 70.0,
+    "description": "Extend your internet connection through your home's electrical wiring with this powerline adapter kit.",
+    "category": "Networking",
+    "subCategory": "Powerline Adapters",
+    "image": "https://placehold.co/400x300/A0D2EB/333333?text=Powerline+Adapter+Main",
+    "image2": "https://placehold.co/400x300/ADD8E6/333333?text=Powerline+Adapter+View2",
+    "image3": "https://placehold.co/400x300/B0E0E6/333333?text=Powerline+Adapter+View3"
+  },
+  {
+    "id": 86,
+    "name": "Portable Smart Speaker",
+    "price": 120.0,
+    "description": "Enjoy smart assistant features and great sound on the go with this portable smart speaker.",
+    "category": "Audio",
+    "subCategory": "Smart Speakers",
+    "image": "https://placehold.co/400x300/C5CDE8/333333?text=Portable+Smart+Speaker+Main",
+    "image2": "https://placehold.co/400x300/D0D8EE/333333?text=Portable+Smart+Speaker+View2",
+    "image3": "https://placehold.co/400x300/DAE2F3/333333?text=Portable+Smart+Speaker+View3"
+  },
+  {
+    "id": 87,
+    "name": "Mini Projector with Android TV",
+    "price": 250.0,
+    "description": "Stream content directly with this mini projector featuring built-in Android TV.",
+    "category": "Displays",
+    "subCategory": "Projectors",
+    "image": "https://placehold.co/400x300/87CEEB/333333?text=Android+Projector+Main",
+    "image2": "https://placehold.co/400x300/ADD8E6/333333?text=Android+Projector+View2",
+    "image3": "https://placehold.co/400x300/B0E0E6/333333?text=Android+Projector+View3"
+  },
+  {
+    "id": 88,
+    "name": "Smart White Light Bulb",
+    "price": 12.0,
+    "description": "Control the brightness of your lighting with this dimmable smart white light bulb.",
+    "category": "Smart Home",
+    "subCategory": "Lighting",
+    "image": "https://placehold.co/400x300/FFDDC1/333333?text=White+Smart+Bulb+Main",
+    "image2": "https://placehold.co/400x300/FFEEDD/333333?text=White+Smart+Bulb+View2",
+    "image3": "https://placehold.co/400x300/FFF8EE/333333?text=White+Smart+Bulb+View3"
+  },
+  {
+    "id": 89,
+    "name": "USB-C Portable SSD 2TB",
+    "price": 200.0,
+    "description": "High-capacity and extremely fast 2TB portable SSD with USB-C connectivity.",
+    "category": "Computing",
+    "subCategory": "Storage",
+    "image": "https://placehold.co/400x300/E6E6FA/333333?text=USB-C+SSD+2TB+Main",
+    "image2": "https://placehold.co/400x300/F0F0FF/333333?text=USB-C+SSD+2TB+View2",
+    "image3": "https://placehold.co/400x300/FAFAFF/333333?text=USB-C+SSD+2TB+View3"
+  },
+  {
+    "id": 90,
+    "name": "Gaming Mouse Pad XL",
+    "price": 25.0,
+    "description": "Large surface gaming mouse pad for precise tracking and comfortable gaming.",
+    "category": "Peripherals",
+    "subCategory": "Mouse Pads",
+    "image": "https://placehold.co/400x300/B0C4DE/333333?text=Gaming+Mousepad+XL+Main",
+    "image2": "https://placehold.co/400x300/C0D0E8/333333?text=Gaming+Mousepad+XL+View2",
+    "image3": "https://placehold.co/400x300/D0DCEF/333333?text=Gaming+Mousepad+XL+View3"
+  },
+  {
+    "id": 91,
+    "name": "Streaming Microphone Kit",
+    "price": 80.0,
+    "description": "Everything you need to start streaming: a quality microphone, stand, and pop filter.",
+    "category": "Audio",
+    "subCategory": "Microphones",
+    "image": "https://placehold.co/400x300/6A5ACD/333333?text=Streaming+Mic+Kit+Main",
+    "image2": "https://placehold.co/400x300/7B68EE/333333?text=Streaming+Mic+Kit+View2",
+    "image3": "https://placehold.co/400x300/8A2BE2/333333?text=Streaming+Mic+Kit+View3"
+  },
+  {
+    "id": 92,
+    "name": "Power Bank with Laptop Charging",
+    "price": 75.0,
+    "description": "Charge your laptop on the go with this high-power output power bank.",
+    "category": "Accessories",
+    "subCategory": "Power Banks",
+    "image": "https://placehold.co/400x300/8FBC8F/333333?text=Laptop+Powerbank+Main",
+    "image2": "https://placehold.co/400x300/98FB98/333333?text=Laptop+Powerbank+View2",
+    "image3": "https://placehold.co/400x300/9ACD32/333333?text=Laptop+Powerbank+View3"
+  },
+  {
+    "id": 93,
+    "name": "Smart Blinds Motor",
+    "price": 130.0,
+    "description": "Automate your blinds with this smart motor. Control with voice or app.",
+    "category": "Smart Home",
+    "subCategory": "Window Treatments",
+    "image": "https://placehold.co/400x300/AFEEEE/333333?text=Smart+Blinds+Main",
+    "image2": "https://placehold.co/400x300/BBFFFF/333333?text=Smart+Blinds+View2",
+    "image3": "https://placehold.co/400x300/D0FFFF/333333?text=Smart+Blinds+View3"
+  },
+  {
+    "id": 94,
+    "name": "Portable Gaming Monitor 144Hz",
+    "price": 280.0,
+    "description": "Take your competitive gaming on the road with this 144Hz portable gaming monitor.",
+    "category": "Displays",
+    "subCategory": "Monitors",
+    "image": "https://placehold.co/400x300/FFB6C1/333333?text=Portable+Gaming+Monitor+Main",
+    "image2": "https://placehold.co/400x300/FFC0CB/333333?text=Portable+Gaming+Monitor+View2",
+    "image3": "https://placehold.co/400x300/FFD1DC/333333?text=Portable+Gaming+Monitor+View3"
+  },
+  {
+    "id": 95,
+    "name": "Wi-Fi 6 PCIe Adapter",
+    "price": 40.0,
+    "description": "Upgrade your desktop to Wi-Fi 6 speeds with this PCIe adapter.",
+    "category": "Networking",
+    "subCategory": "Adapters",
+    "image": "https://placehold.co/400x300/B0E0E6/333333?text=Wi-Fi+6+Adapter+Main",
+    "image2": "https://placehold.co/400x300/C0F0F6/333333?text=Wi-Fi+6+Adapter+View2",
+    "image3": "https://placehold.co/400x300/D0F8FB/333333?text=Wi-Fi+6+Adapter+View3"
+  },
+  {
+    "id": 96,
+    "name": "Gaming PC Case Mid-Tower",
+    "price": 90.0,
+    "description": "Stylish mid-tower gaming PC case with excellent airflow and tempered glass side panel.",
+    "category": "Computing",
+    "subCategory": "Cases",
+    "image": "https://placehold.co/400x300/8A2BE2/333333?text=Gaming+PC+Case+Main",
+    "image2": "https://placehold.co/400x300/9370DB/333333?text=Gaming+PC+Case+View2",
+    "image3": "https://placehold.co/400x300/BA55D3/333333?text=Gaming+PC+Case+View3"
+  },
+  {
+    "id": 97,
+    "name": "DAC and Headphone Amplifier",
+    "price": 160.0,
+    "description": "Elevate your audio experience with this high-fidelity DAC and headphone amplifier.",
+    "category": "Audio",
+    "subCategory": "Amplifiers",
+    "image": "https://placehold.co/400x300/ADD8E6/333333?text=DAC+Amp+Main",
+    "image2": "https://placehold.co/400x300/B0E0E6/333333?text=DAC+Amp+View2",
+    "image3": "https://placehold.co/400x300/BFEFFF/333333?text=DAC+Amp+View3"
+  },
+  {
+    "id": 98,
+    "name": "Smart Garage Door Opener",
+    "price": 99.0,
+    "description": "Control and monitor your garage door from anywhere with this smart opener.",
+    "category": "Smart Home",
+    "subCategory": "Garage",
+    "image": "https://placehold.co/400x300/FFDAB9/333333?text=Smart+Garage+Main",
+    "image2": "https://placehold.co/400x300/FFE4B5/333333?text=Smart+Garage+View2",
+    "image3": "https://placehold.co/400x300/FFF0F5/333333?text=Smart+Garage+View3"
+  },
+  {
+    "id": 99,
+    "name": "USB-C to DisplayPort Cable",
+    "price": 22.0,
+    "description": "Connect your USB-C device to a DisplayPort monitor for high-resolution video.",
+    "category": "Accessories",
+    "subCategory": "Cables",
+    "image": "https://placehold.co/400x300/E0FFFF/333333?text=USB-C+DP+Cable+Main",
+    "image2": "https://placehold.co/400x300/F0FFFF/333333?text=USB-C+DP+Cable+View2",
+    "image3": "https://placehold.co/400x300/F5FFFA/333333?text=USB-C+DP+Cable+View3"
+  },
+  {
+    "id": 100,
+    "name": "Smart Home Security Kit (Advanced)",
+    "price": 400.0,
+    "description": "An advanced smart home security kit with professional monitoring options and extensive sensor coverage.",
+    "category": "Smart Home",
+    "subCategory": "Security Systems",
+    "image": "https://placehold.co/400x300/A2D9CE/333333?text=Advanced+Security+Main",
+    "image2": "https://placehold.co/400x300/B0E0D8/333333?text=Advanced+Security+View2",
+    "image3": "https://placehold.co/400x300/BDF4E8/333333?text=Advanced+Security+View3"
+  }
+]
 
 export default productList;

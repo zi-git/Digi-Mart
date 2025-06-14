@@ -3,6 +3,7 @@ import {
   FaInstagram,
   FaTwitter,
   FaLinkedinIn,
+  FaGithub,
 } from "react-icons/fa";
 
 import categoriesData from "../Data/category";
@@ -24,6 +25,7 @@ function Footer() {
             <FaInstagram className="hover:text-pink-500 cursor-pointer" />
             <FaTwitter className="hover:text-sky-500 cursor-pointer" />
             <FaLinkedinIn className="hover:text-blue-500 cursor-pointer" />
+            <FaGithub className="hover:text-gray-500 cursor-pointer" />
           </div>
         </div>
 
@@ -34,9 +36,7 @@ function Footer() {
             {categoriesData.map((c) => {
               return (
                 <NavLink to={`/category/${c.id}`} key={c.id}>
-                  <li>
-                    {c.title}
-                  </li>
+                  <li>{c.title}</li>
                 </NavLink>
               );
             })}

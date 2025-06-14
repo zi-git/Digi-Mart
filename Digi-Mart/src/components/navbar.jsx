@@ -8,7 +8,7 @@ import {
   Menu,
 } from "lucide-react";
 import categoriesData from "../Data/category";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 
 export default function Navbar() {
   const countries = [
@@ -63,9 +63,12 @@ export default function Navbar() {
         </button>
         <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap justify-between w-full max-w-[1500px] items-center py-4 gap-y-3 gap-x-4 ">
           {/* Logo */}
-          <h1 className="text-[var(--brand)] text-2xl md:text-3xl font-bold transition-all duration-300 hover:opacity-80 cursor-pointer sm:text-left w-full sm:w-auto md:m-0 ml-3.5">
-            Digimart<span className="text-red-500 font-extrabold">.</span>
-          </h1>
+          <Link to="/">
+            {" "}
+            <h1 className="text-[var(--brand)] text-2xl md:text-3xl font-bold transition-all duration-300 hover:opacity-80 cursor-pointer sm:text-left w-full sm:w-auto md:m-0 ml-3.5">
+              Digimart<span className="text-red-500 font-extrabold">.</span>
+            </h1>
+          </Link>
 
           <div
             className={`w-full flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap justify-evenly items-center gap-y-3 gap-x-4 transition-all duration-300 
@@ -101,21 +104,23 @@ export default function Navbar() {
             </div>
 
             {/* Icons and Auth */}
-            <div className="flex sm:flex-row justify-between items-center w-full sm:w-auto gap-3 text-[var(--text-color)] text-sm">
+            <div className="flex sm:flex-row justify-between items-center w-full sm:w-auto gap-5 text-[var(--text-color)] text-sm">
               {/* Wishlist & Cart */}
-              <div className="flex justify-center gap-6 w-full sm:w-auto">
+              <div className="flex justify-evenly gap-6 md:gap-3 w-full sm:w-auto">
                 <div className="flex flex-col items-center cursor-pointer transition-all duration-300 hover:text-red-500">
                   <Heart className="h-5 w-5" />
                   <span>Wishlist</span>
                 </div>
-                <div className="flex flex-col items-center cursor-pointer transition-all duration-300 hover:text-blue-500">
-                  <ShoppingCart className="h-5 w-5" />
-                  <span>Cart</span>
-                </div>
+                <NavLink to="/cart">
+                  <div className="flex flex-col items-center cursor-pointer transition-all duration-300 hover:text-blue-500">
+                    <ShoppingCart className="h-5 w-5" />
+                    <span>Cart</span>
+                  </div>
+                </NavLink>
               </div>
 
               {/* Auth Buttons */}
-              <div className="flex gap-4 w-full sm:w-auto justify-between">
+              <div className="flex justify-evenly gap-6 md:md:gap-3 w-full sm:w-auto">
                 <button className="flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:text-green-500">
                   <User className="h-5 w-5" />
                   Login
@@ -133,7 +138,7 @@ export default function Navbar() {
         <div className="w-full h-8 sm:overflow-auto overflow-scroll bg-gray-700 md:px-50 flex md:justify-between items-center text-white text-xs static">
           {categoriesData.map((c) => {
             return (
-              <NavLink to={`/category/${c.id}`}>
+              <NavLink key={c.id} to={`/category/${c.id}`}>
                 {" "}
                 <span
                   key={c.id}
