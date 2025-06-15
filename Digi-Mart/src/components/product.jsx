@@ -1,14 +1,34 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import {
+  FaHeartCirclePlus,
+  FaHeart,
+  FaHeartCircleMinus,
+} from "react-icons/fa6";
+import {
+  BsCartPlusFill,
+  BsFillCartFill,
+  BsFillCartCheckFill,
+  BsFillCartDashFill,
+} from "react-icons/bs";
 import { useParams, Link } from "react-router-dom";
 import productList from "../Data/products";
 import { useCart } from "../Context/cartContext";
+import { useWishlist } from "../Context/wishListContext";
 
 const ProductPage = () => {
   const { id } = useParams();
   const product = productList.find((item) => item.id === Number(id));
   const [selectedImage, setSelectedImage] = useState(product?.image);
   const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useCart();
+  const { addToCart, checkIfInCart, removeFromCart } = useCart();
+  const [isClicked, setIsClicked] = useState(false);
+
+  const {
+    addToWishlist,
+    checkIfInWishlist,
+    wishlistItems,
+    removeFromWishlist,
+  } = useWishlist();
 
   useEffect(() => {
     setSelectedImage(product?.image);
@@ -21,6 +41,21 @@ const ProductPage = () => {
       </div>
     );
   }
+
+  const handleAddToWishlist = (product) => {
+    addToWishlist(product);
+    triggerPop();
+  };
+
+  const handleRemoveFromWishlist = (id) => {
+    removeFromWishlist(id);
+    triggerPop();
+  };
+
+  const triggerPop = () => {
+    setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 200); // pop lasts 200ms
+  };
 
   const suggestedProducts = productList
     .filter(
@@ -85,14 +120,52 @@ const ProductPage = () => {
               min={1}
               className="w-16 text-center border px-2 py-2 rounded"
             />
-            <button
-              onClick={() => {
-                addToCart(product, quantity);
-              }}
-              className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 transition"
-            >
-              Add to Cart
-            </button>
+
+            {/* {add to wishlist} */}
+            {checkIfInWishlist(product.id) ? (
+              <button
+                onClick={() => handleRemoveFromWishlist(product.id)}
+                className={`group bg-black px-4 py-2 rounded transition-transform ${
+                  isClicked ? "scale-110" : "scale-100"
+                }`}
+              >
+                <FaHeart className="group-hover:hidden text-red-500 w-5 h-5" />
+                <FaHeartCircleMinus className="hidden group-hover:block text-gray-400 w-5 h-5" />
+              </button>
+            ) : (
+              <button
+                onClick={() => handleAddToWishlist(product)}
+                className={`group bg-black text-red-400 px-4 py-2 rounded transition-transform ${
+                  isClicked ? "scale-110" : "scale-100"
+                }`}
+              >
+                <FaHeartCirclePlus className="hidden group-hover:block w-5 h-5" />
+                <FaHeart className="group-hover:hidden text-white w-5 h-5" />
+              </button>
+            )}
+
+            {/* Add to cart button */}
+            {checkIfInCart(product.id) ? (
+              <button
+                onClick={() => {
+                  removeFromCart(product.id);
+                }}
+                className={`group bg-black px-4 py-2 rounded transition-transform active:scale-110`}
+              >
+                <BsFillCartCheckFill className="group-hover:hidden text-blue-500 w-5 h-5" />
+                <BsFillCartDashFill className="hidden group-hover:block text-red-700 w-5 h-5" />
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  addToCart(product, quantity);
+                }}
+                className={`group bg-black text-red-400 px-4 py-2 rounded transition-transform active:scale-110`}
+              >
+                <BsCartPlusFill className="hidden group-hover:block w-5 h-5 text-green-500" />
+                <BsFillCartFill className="group-hover:hidden text-white w-5 h-5" />
+              </button>
+            )}
           </div>
 
           <div className="text-sm text-gray-500">

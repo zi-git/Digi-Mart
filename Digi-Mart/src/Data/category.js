@@ -12,7 +12,7 @@ const categoriesData = [
     },
     {
       id: 2,
-      title: "Footwear",
+      title: "footwear",
       subtitle:
         "Find your perfect pair for any occasion. Style, comfort, and performance.",
       Icon: `src/assets/Footware.png`,
@@ -34,7 +34,7 @@ const categoriesData = [
     },
     {
       id: 4,
-      title: "Home Appliances",
+      title: "Smart Home",
       subtitle:
         "Modernize your home with appliances that make life easier and smarter.",
       Icon: `src/assets/homeappliances.png`,
@@ -76,7 +76,57 @@ const categoriesData = [
     },
     {
       id: 8,
-      title: "Office Supplies",
+      title: "Accessories",
+      subtitle: "Everything you need to stay productive and organized.",
+      Icon: `src/assets/office supplies.png`,
+      colors: {
+        bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
+        btn: "from-sky-500 to-slate-600",
+      },
+    },
+    {
+      id: 9,
+      title: "Computing",
+      subtitle: "Everything you need to stay productive and organized.",
+      Icon: `src/assets/office supplies.png`,
+      colors: {
+        bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
+        btn: "from-sky-500 to-slate-600",
+      },
+    },
+    {
+      id: 10,
+      title: "Peripherals",
+      subtitle: "Everything you need to stay productive and organized.",
+      Icon: `src/assets/office supplies.png`,
+      colors: {
+        bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
+        btn: "from-sky-500 to-slate-600",
+      },
+    },
+    {
+      id: 11,
+      title: "Networking",
+      subtitle: "Everything you need to stay productive and organized.",
+      Icon: `src/assets/office supplies.png`,
+      colors: {
+        bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
+        btn: "from-sky-500 to-slate-600",
+      },
+    },
+    {
+      id: 12,
+      title: "Displays",
+      subtitle: "Everything you need to stay productive and organized.",
+      Icon: `src/assets/office supplies.png`,
+      colors: {
+        bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
+        btn: "from-sky-500 to-slate-600",
+      },
+    },
+    {
+      id: 13,
+      title: "Wearables",
       subtitle: "Everything you need to stay productive and organized.",
       Icon: `src/assets/office supplies.png`,
       colors: {

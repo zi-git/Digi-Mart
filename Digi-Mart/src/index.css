@@ -14,7 +14,8 @@
 }
 
 .active{
-  color: rgb(0, 255, 242);
+  color: rgb(0, 255, 179);
+  background-clip: text;
   font-style: italic;
   text-decoration: underline 3px rgb(255, 255, 255);
   
