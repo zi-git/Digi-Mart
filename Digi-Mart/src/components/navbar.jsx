@@ -6,9 +6,13 @@ import {
   UserRoundPlus,
   X,
   Menu,
+  Wind,
+  LogOut,
 } from "lucide-react";
 import categoriesData from "../Data/category";
-import { NavLink, Link } from "react-router-dom";
+import productList from "../Data/products";
+import { NavLink, Link,useNavigate } from "react-router-dom";
+import { getCurrentUser, logoutUser } from "./Authentication/utils/auth"; // Adjust the path as needed
 
 export default function Navbar() {
   const countries = [
@@ -30,8 +34,13 @@ export default function Navbar() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const navRef = useRef(null);
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState(``);
+  const [selectedCat, setSelectedCat] = useState(`all`);
+  const [results, setResults] = useState([]);
+  const [user, setUser] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -41,12 +50,42 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const current = getCurrentUser();
+    setUser(current);
+    
 
+    window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleLogout = () => {
+    logoutUser();
+    setUser(false);
+    navigate("/auth/login");
+  };
+
+  const handleSearch = async () => {
+    let filteredP = [];
+
+    if (selectedCat.toLowerCase() === "all") {
+      filteredP = productList;
+    } else {
+      filteredP = productList.filter(
+        (p) => p.category.toLowerCase() === selectedCat.toLowerCase()
+      );
+    }
+
+    if (searchTerm.trim() !== "") {
+      const searchFiltered = filteredP.filter((p) =>
+        p.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setResults(searchFiltered);
+    } else {
+      setResults(filteredP);
+    }
+  };
 
   return (
     <>
@@ -59,7 +98,12 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/">
             {" "}
-            <h1 className="text-[var(--brand)] text-2xl md:text-3xl font-bold transition-all duration-300 hover:opacity-80 cursor-pointer sm:text-left w-full sm:w-auto lg:ml-2 ml-4 ">
+            <h1
+              onClick={() => {
+                setSearchTerm(``);
+              }}
+              className="text-[var(--brand)] text-2xl md:text-3xl font-bold transition-all duration-300 hover:opacity-80 cursor-pointer sm:text-left w-full sm:w-auto lg:ml-2 ml-4 "
+            >
               Digimart<span className="text-red-500 font-extrabold">.</span>
             </h1>
           </Link>
@@ -75,25 +119,106 @@ export default function Navbar() {
             ${isMobileMenuOpen ? "flex" : "hidden"} sm:flex`}
           >
             {/* Search Bar */}
-            <div className="flex w-[80%] h-8 md:h-auto sm:w-auto md:w-1/2 border-2 border-gray-500 rounded-3xl overflow-hidden text-[var(--text-color)]">
+            <div className="flex w-auto h-8 md:h-auto sm:w-auto md:w-1/2 border-2 border-gray-500 rounded-3xl overflow-hidden text-[var(--text-color)]">
               <select
                 name="All Categories"
-                className="px-2 bg-transparent text-sm focus:outline-none"
+                onChange={(e) => {
+                  setSearchTerm(``);
+                  setSelectedCat(e.target.value);
+                }}
+                className=" w-[5.5rem] truncate px-2 bg-transparent text-sm focus:outline-none"
               >
-                <option value="All">All</option>
+                <option value="All" className="bg-gray-900 text-gray-500">
+                  All
+                </option>
+                {categoriesData.map((cat) => (
+                  <option
+                    key={cat.id}
+                    value={cat.title}
+                    className=" bg-gray-900 text-gray-500"
+                  >
+                    {cat.title}
+                  </option>
+                ))}
               </select>
               <input
                 type="text"
                 placeholder="Search here"
+                value={searchTerm}
+                onInput={async (e) => {
+                  setSearchTerm(e.target.value);
+                  await handleSearch();
+                }}
                 className="flex-1 px-2 py-2 text-sm border-x-2 border-gray-500 focus:outline-none"
               />
-              <button className=" px-4 bg-gray-500 text-[var(--nav)] font-semibold text-sm hover:bg-gray-600 transition-all duration-300">
+              <button
+                onClick={() => {
+                  handleSearch();
+                }}
+                className={`px-4 bg-gray-500 text-[var(--nav)] font-semibold text-sm hover:bg-gray-600 transition-all duration-300 `}
+              >
                 Search
               </button>
             </div>
 
+            {/* search results */}
+            <div
+              onClick={() => {
+                setSearchTerm(``);
+              }}
+              className={`h-screen w-screen absolute sm:top-40 md:top-40 top-60 lg:top-26.5 left-0 backdrop-blur-sm overscroll-contain bg-fixed  ${
+                searchTerm == `` ? `hidden` : `block`
+              }`}
+            >
+              <div
+                className={`w-[95%] md:w-1/2  bg-white rounded shadow-2xl shadow-gray-950 max-h-80 overflow-y-auto z-50 absolute left-[50vw] translate-x-[-50%] md:translate-0 md:left-2 lg:left-[13vw] xl:l top-0  overscroll-contain scrollbar-thin scrollbar-track-gray-600 scrollbar-thumb-gray-500 ${
+                  searchTerm == `` ? `hidden` : `block`
+                }`}
+              >
+                {results.length > 0 ? (
+                  searchTerm.trim() !== "" ? (
+                    <>
+                      <p className="sticky z-10 top-0 p-2 bg-gray-800 text-gray-300 font-semibold text-md hover:bg-gray-500 transition-all duration-300 border-b-1 uppercase">
+                        {`In ` + selectedCat}
+                      </p>
+                      {results.map((product) => (
+                        <Link
+                          key={product.id}
+                          to={`/product/${product.id}`}
+                          className=" flex h-8"
+                        >
+                          <img
+                            src={product.image}
+                            alt=""
+                            className=" contain-content items-center object-center object-contain border-b-1"
+                          />
+                          <p
+                            onClick={() => {
+                              setSearchTerm(``);
+                            }}
+                            className="p-2 w-full bg-white text-gray-900 font-semibold text-sm hover:bg-gray-500 transition-all duration-300 border-b-1"
+                          >
+                            {product.name}
+                          </p>
+                        </Link>
+                      ))}
+                    </>
+                  ) : searchTerm.trim() !== "" ? (
+                    <p className="px-4 py-2 text-sm text-gray-900">
+                      No results found.
+                    </p>
+                  ) : null
+                ) : null}
+              </div>
+            </div>
+
             {/* Country Selector */}
-            <div className="w-[40%] h-[30px] sm:w-auto flex items-center gap-2 text-sm md:text-base bg-transparent border border-gray-300 px-3 py-2 rounded-full shadow-sm hover:shadow-md transition duration-200 ">
+            <div
+              onClick={() => {
+                setSearchTerm(``);
+              }}
+              className="w-[40%] h-[30px] sm:w-auto flex items-center gap-2 text-sm md:text-base bg-transparent border border-gray-300 px-3 py-2 rounded-full shadow-sm hover:shadow-md transition duration-200 "
+            >
               <select className="bg-transparent focus:outline-none w-full text-gray-300">
                 {countries.map((c, i) => (
                   <option key={i} value={c} className="text-black bg-white">
@@ -104,7 +229,12 @@ export default function Navbar() {
             </div>
 
             {/* Icons and Auth */}
-            <div className="flex sm:flex-row justify-between items-center w-full sm:w-auto gap-5 text-[var(--text-color)] text-sm">
+            <div
+              onClick={() => {
+                setSearchTerm(``);
+              }}
+              className="flex sm:flex-row justify-between items-center w-full sm:w-auto gap-5 text-[var(--text-color)] text-sm"
+            >
               {/* Wishlist & Cart */}
               <div className="flex justify-evenly gap-6 md:gap-3 w-full sm:w-auto">
                 <NavLink to={`/wishlist`}>
@@ -122,23 +252,49 @@ export default function Navbar() {
                 </NavLink>
               </div>
 
-              {/* Auth Buttons */}
-              <div className="flex justify-evenly gap-6 md:md:gap-3 w-full sm:w-auto">
-                <button className="flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:text-green-500">
-                  <User className="h-5 w-5" />
-                  Login
-                </button>
-                <button className="flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:text-yellow-500">
-                  <UserRoundPlus className="h-5 w-5" />
-                  SignUp
-                </button>
-              </div>
+              {user? (
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="flex flex-col items-center text-green-400">
+                   <NavLink to={`/user`} className="flex flex-col items-center text-green-400">
+                    <User className="h-5 w-5" />
+                    <span>{user.name || user.email || "User"}</span>
+                    </NavLink>
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="flex flex-col items-center text-red-400 hover:text-red-600 transition-transform hover:scale-105"
+                  >
+                    <LogOut className="h-5 w-5" />
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <div className="flex justify-evenly gap-6 md:gap-3 w-full sm:w-auto">
+                  <NavLink to={`/auth/login`}>
+                    <button className="flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:text-green-500">
+                      <User className="h-5 w-5" />
+                      Login
+                    </button>
+                  </NavLink>
+                  <NavLink to={`/auth/signup`}>
+                    <button className="flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:text-yellow-500">
+                      <UserRoundPlus className="h-5 w-5" />
+                      SignUp
+                    </button>
+                  </NavLink>
+                </div>
+              )}
             </div>
           </div>
         </div>
 
         {/* Optional bottom bar */}
-        <div className="w-full  h-8 sm:overscroll-contain overflow-y-hidden overflowx-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 bg-gray-700 flex justify-evenly items-center text-white text-xs static">
+        <div
+          onClick={() => {
+            setSearchTerm(``);
+          }}
+          className="w-full  h-8 sm:overscroll-contain overflow-y-hidden overflowx-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 bg-gray-700 flex justify-evenly items-center text-white text-xs static"
+        >
           <div className="max-w-[1500px] flex justify-between ">
             <NavLink to={`/`}>
               <span className="cursor-pointer hover:underline md:font-semibold w-auto px-2.5 text-nowrap text-sm md:text-base">

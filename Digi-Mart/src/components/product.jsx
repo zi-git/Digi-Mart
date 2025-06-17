@@ -76,14 +76,14 @@ const ProductPage = () => {
             alt={product.name}
             className="w-full h-[500px] object-contain rounded-xl border"
           />
-          <div className="flex gap-4 mt-4 justify-center">
+          <div className="flex gap-4 mt-4 justify-center ">
             {[product.image, product.image2, product.image3].map((img, i) => (
               <img
                 key={i}
                 src={img}
                 alt={`Thumbnail ${i + 1}`}
                 onClick={() => setSelectedImage(img)}
-                className={`w-20 h-20 object-contain border rounded cursor-pointer transition hover:scale-105 ${
+                className={`w-20 h-20 object-contain border rounded cursor-pointer transition hover:scale-110 ${
                   selectedImage === img ? "ring-2 ring-blue-500" : ""
                 }`}
               />
@@ -198,7 +198,7 @@ const ProductPage = () => {
             <Link
               key={prod.id}
               to={`/product/${prod.id}`}
-              className="border rounded-lg p-4 hover:shadow-lg transition"
+              className="border rounded-lg p-4 hover:shadow-lg transition hover:scale-105"
             >
               <img
                 src={prod.image}

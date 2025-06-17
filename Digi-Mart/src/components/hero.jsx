@@ -127,7 +127,7 @@ const Home = () => {
                       <div
                         key={product.id}
                         className="min-w-[200px] md:min-w-[220px] bg-white p-4 rounded-md 
-              shadow-md hover:shadow-lg transition duration-300"
+                         shadow-md hover:shadow-lg transition duration-300 hover:scale-105"
                       >
                         <Link to={`/product/${product.id}`}>
                           <img

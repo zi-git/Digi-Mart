@@ -7,6 +7,10 @@ import Product from "./components/product";
 import NotFound from "./components/notFound";
 import CartPage from "./components/cart";
 import WishlistPage from "./components/wishlist";
+import AuthPage from "./components/Authentication/authLayout";
+import Login from "./components/Authentication/login";
+import Signup from "./components/Authentication/signup";
+import UserPage from "./components/userPage";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect } from "react";
@@ -34,6 +38,12 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
+       <Route path="/auth" element={<AuthPage />}>
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} /> 
+        </Route> 
+        <Route path='/user' element={<UserPage/>}/>
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

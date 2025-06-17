@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useCart } from "../Context/cartContext";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const { cartItems, totalPrice, removeFromCart, clearCart, updateQuantity } =
@@ -20,14 +21,17 @@ const CartPage = () => {
               className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 border rounded-xl shadow-md"
             >
               <div className="flex items-center gap-6 w-full sm:w-auto">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-24 h-24 object-contain rounded-md border"
-                />
+                <Link to={`/product/${item.id}`}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-24 h-24 object-contain rounded-md border"
+                  />
+                </Link>
                 <div className="space-y-2">
-                  <p className="font-semibold text-lg">{item.name}</p>
-
+                  <Link to={`/product/${item.id}`}>
+                    <p className="font-semibold text-lg">{item.name}</p>
+                  </Link>
                   <div className="flex items-center gap-4">
                     <button
                       onClick={() => {
