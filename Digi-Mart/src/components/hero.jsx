@@ -17,13 +17,13 @@ function SampleNextArrow(props) {
         background: "#9ca3af66", // Tailwind's gray-800
         color: "#fff",
         borderRadius: "20px",
-        width: "5vw",
+        width: "7vw",
         maxWidth: "50px",
         height: "70%",
         boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
         transition: "all 0.3s ease",
         zIndex: 10,
-        marginRight: "1.5rem",
+        marginRight: "1.6rem",
       }}
       onMouseEnter={(e) => (e.currentTarget.style.background = "	#37415180")} // gray-700
       onMouseLeave={(e) => (e.currentTarget.style.background = "#9ca3af66")} // back to gray-800
@@ -47,13 +47,13 @@ function SamplePrevArrow(props) {
         background: "#9ca3af66", // Tailwind's gray-800
         color: "#fff",
         borderRadius: "20px",
-        width: "5vw",
+        width: "7vw",
         maxWidth: "50px",
         height: "70%",
         boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
         transition: "all 0.3s ease",
         zIndex: 10,
-        marginLeft: "1.5rem",
+        marginLeft: "1.6rem",
       }}
       onMouseEnter={(e) => (e.currentTarget.style.background = "	#37415180")} // gray-700
       onMouseLeave={(e) => (e.currentTarget.style.background = "#9ca3af66")} // back to gray-800

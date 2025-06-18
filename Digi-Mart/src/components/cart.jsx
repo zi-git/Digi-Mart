@@ -25,12 +25,12 @@ const CartPage = () => {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-24 h-24 object-contain rounded-md border"
+                    className="w-24 h-[10vh] object-contain rounded-md border"
                   />
                 </Link>
                 <div className="space-y-2">
                   <Link to={`/product/${item.id}`}>
-                    <p className="font-semibold text-lg">{item.name}</p>
+                    <p className="font-semibold text-lg ">{item.name}</p>
                   </Link>
                   <div className="flex items-center gap-4">
                     <button
@@ -54,7 +54,8 @@ const CartPage = () => {
                           updateQuantity(item.id, 1);
                         }, 150);
                       }}
-                      onMouseUp={clearInterval(newInterval.current)}
+                      onMouseUp={() => clearInterval(newInterval.current)}
+                      onMouseLeave={() => clearInterval(newInterval.current)} // optional for safety
                       onClick={() => updateQuantity(item.id, 1)}
                       className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-lg font-bold flex items-center justify-center"
                     >

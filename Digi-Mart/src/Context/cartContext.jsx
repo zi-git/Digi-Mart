@@ -1,61 +1,102 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 const CartContext = createContext();
 
+const getCartFromCookie = () => {
+  const cookie = Cookies.get("auth");
+  try {
+    if (cookie) {
+      const parsed = JSON.parse(cookie);
+      return parsed.cartItems || [];
+    }
+  } catch (err) {
+    console.error("Invalid auth cookie", err);
+  }
+  return [];
+};
+
+const updateCartInCookie = (cartItems) => {
+  const cookie = Cookies.get("auth");
+  if (!cookie) return;
+
+  try {
+    const parsed = JSON.parse(cookie);
+    const updated = { ...parsed, cartItems };
+    Cookies.set("auth", JSON.stringify(updated), { expires: 365 });
+  } catch (err) {
+    console.error("Failed to update cart in cookie", err);
+  }
+};
+
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(getCartFromCookie());
+
+  const syncCart = (newCart) => {
+    setCartItems(newCart);
+    updateCartInCookie(newCart);
+  };
 
   const addToCart = (product, quantity) => {
-    setCartItems((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
-      if (existing) {
-        return prev.map((item) =>
-          item.id === product.id
-            ? {
-                ...item,
-                quantity: parseInt(item.quantity) + parseInt(quantity),
-              }
-            : item
-        );
-        console.log(`added to cart`);
-      } else {
-        return [...prev, { ...product, quantity }];
-      }
-    });
+    const existing = cartItems.find((item) => item.id === product.id);
+    let updatedCart;
+    if (existing) {
+      updatedCart = cartItems.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + parseInt(quantity) }
+          : item
+      );
+    } else {
+      updatedCart = [
+        ...cartItems,
+        { ...product, quantity: parseInt(quantity) },
+      ];
+    }
+    syncCart(updatedCart);
+  };
+
+  const updateQuantity = (productId, deltaQty) => {
+    const updatedCart = cartItems.map((item) =>
+      item.id === productId
+        ? {
+            ...item,
+            quantity: Math.max(1, item.quantity + deltaQty), // prevents 0 or negative qty
+          }
+        : item
+    );
+    syncCart(updatedCart);
+  };
+
+  const removeFromCart = (productId) => {
+    const updatedCart = cartItems.filter((item) => item.id !== productId);
+    syncCart(updatedCart);
+  };
+
+  const clearCart = () => {
+    syncCart([]);
   };
 
   const checkIfInCart = (id) => {
     return cartItems.some((item) => item.id === id);
   };
 
-  const removeFromCart = (productId) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== productId));
-  };
-
-  const updateQuantity = (productId, newQty) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === productId
-          ? { ...item, quantity: item.quantity + newQty }
-          : item
-      )
-    );
-  };
-
-  const clearCart = () => setCartItems([]);
-
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  // Keep state in sync with cookie (optional on reload)
+  useEffect(() => {
+    setCartItems(getCartFromCookie());
+  }, []);
 
   return (
     <CartContext.Provider
       value={{
         cartItems,
         addToCart,
-        removeFromCart,
         updateQuantity,
+        removeFromCart,
         clearCart,
         checkIfInCart,
         totalPrice,
@@ -66,5 +107,4 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-// Custom Hook
 export const useCart = () => useContext(CartContext);

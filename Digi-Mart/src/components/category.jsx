@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import productList from "../Data/products";
 import categoriesData from "../Data/category";
 
@@ -21,17 +21,17 @@ const CategoryPage = () => {
 
   return (
     <div className="px-4 md:px-10 py-8 max-w-screen-xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">
-        {category.title} Products
-      </h1>
+      <h1 className="text-3xl font-bold mb-6">{category.title} Products</h1>
+
       {filteredProducts.length === 0 ? (
         <p>No products found in this category.</p>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {filteredProducts.map((product) => (
-            <div
+            <Link
               key={product.id}
-              className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition"
+              to={`/product/${product.id}`}
+              className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition block"
             >
               <img
                 src={product.image}
@@ -41,13 +41,11 @@ const CategoryPage = () => {
               <h3 className="text-lg font-semibold truncate">
                 {product.name}
               </h3>
-              <p className="text-gray-700 font-semibold">
-                ₹{product.price}
-              </p>
+              <p className="text-gray-700 font-semibold">₹{product.price}</p>
               <p className="text-sm text-gray-500 truncate">
                 {product.subCategory}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       )}

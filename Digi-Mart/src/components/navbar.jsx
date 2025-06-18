@@ -162,55 +162,50 @@ export default function Navbar() {
             </div>
 
             {/* search results */}
-            <div
-              onClick={() => {
-                setSearchTerm(``);
-              }}
-              className={`h-screen w-screen absolute sm:top-40 md:top-40 top-60 lg:top-26.5 left-0 backdrop-blur-sm overscroll-contain bg-fixed  ${
-                searchTerm == `` ? `hidden` : `block`
-              }`}
+           <div
+  onClick={() => {
+    setSearchTerm(``);
+  }}
+  className={`h-screen w-screen absolute sm:top-40 md:top-40 top-60 lg:top-26.5 left-0 backdrop-blur-sm bg-black/30 transition-all duration-300 ${
+    searchTerm === `` ? `hidden` : `block`
+  }`}
+>
+  <div
+    className={`w-[95%] md:w-1/2 bg-white rounded-2xl shadow-xl max-h-80 overflow-y-auto z-50 absolute left-[50vw] translate-x-[-50%] md:translate-x-0 md:left-2 lg:left-[13vw] top-0 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 ${
+      searchTerm === `` ? `hidden` : `block`
+    }`}
+  >
+    {results.length > 0 && searchTerm.trim() !== "" ? (
+      <>
+        <p className="sticky top-0 z-10 p-3 bg-gray-900 text-white text-sm font-semibold uppercase border-b border-gray-700">
+          {`In ${selectedCat}`}
+        </p>
+        {results.map((product) => (
+          <Link
+            key={product.id}
+            to={`/product/${product.id}`}
+            className="flex items-center gap-2 p-3 hover:bg-gray-100 transition-colors duration-200 border-b border-gray-200"
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-10 h-10 object-contain rounded"
+            />
+            <p
+              onClick={() => setSearchTerm(``)}
+              className="text-sm font-medium text-gray-800"
             >
-              <div
-                className={`w-[95%] md:w-1/2  bg-white rounded shadow-2xl shadow-gray-950 max-h-80 overflow-y-auto z-50 absolute left-[50vw] translate-x-[-50%] md:translate-0 md:left-2 lg:left-[13vw] xl:l top-0  overscroll-contain scrollbar-thin scrollbar-track-gray-600 scrollbar-thumb-gray-500 ${
-                  searchTerm == `` ? `hidden` : `block`
-                }`}
-              >
-                {results.length > 0 ? (
-                  searchTerm.trim() !== "" ? (
-                    <>
-                      <p className="sticky z-10 top-0 p-2 bg-gray-800 text-gray-300 font-semibold text-md hover:bg-gray-500 transition-all duration-300 border-b-1 uppercase">
-                        {`In ` + selectedCat}
-                      </p>
-                      {results.map((product) => (
-                        <Link
-                          key={product.id}
-                          to={`/product/${product.id}`}
-                          className=" flex h-8"
-                        >
-                          <img
-                            src={product.image}
-                            alt=""
-                            className=" contain-content items-center object-center object-contain border-b-1"
-                          />
-                          <p
-                            onClick={() => {
-                              setSearchTerm(``);
-                            }}
-                            className="p-2 w-full bg-white text-gray-900 font-semibold text-sm hover:bg-gray-500 transition-all duration-300 border-b-1"
-                          >
-                            {product.name}
-                          </p>
-                        </Link>
-                      ))}
-                    </>
-                  ) : searchTerm.trim() !== "" ? (
-                    <p className="px-4 py-2 text-sm text-gray-900">
-                      No results found.
-                    </p>
-                  ) : null
-                ) : null}
-              </div>
-            </div>
+              {product.name}
+            </p>
+          </Link>
+        ))}
+      </>
+    ) : searchTerm.trim() !== "" ? (
+      <p className="px-4 py-3 text-sm text-gray-600">No results found.</p>
+    ) : null}
+  </div>
+</div>
+
 
             {/* Country Selector */}
             <div
@@ -239,14 +234,14 @@ export default function Navbar() {
               <div className="flex justify-evenly gap-6 md:gap-3 w-full sm:w-auto">
                 <NavLink to={`/wishlist`}>
                   <div className="flex flex-col items-center cursor-pointer transition-all duration-300 hover:text-red-500">
-                    <Heart className="h-5 w-5" />
+                    <Heart className="h-5 w-8" />
                     <span>Wishlist</span>
                   </div>
                 </NavLink>
 
                 <NavLink to="/cart">
                   <div className="flex flex-col items-center cursor-pointer transition-all duration-300 hover:text-blue-500">
-                    <ShoppingCart className="h-5 w-5" />
+                    <ShoppingCart className="h-5 w-8" />
                     <span>Cart</span>
                   </div>
                 </NavLink>
@@ -293,7 +288,7 @@ export default function Navbar() {
           onClick={() => {
             setSearchTerm(``);
           }}
-          className="w-full  h-8 sm:overscroll-contain overflow-y-hidden overflowx-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 bg-gray-700 flex justify-evenly items-center text-white text-xs static"
+          className="w-full  h-8 sm:overscroll-contain overflow-y-hidden overflowx-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 bg-gray-700 flex justify-evenly items-center text-white text-xs static overflow-hidden"
         >
           <div className="max-w-[1500px] flex justify-between ">
             <NavLink to={`/`}>
