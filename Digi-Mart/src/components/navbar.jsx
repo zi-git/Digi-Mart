@@ -11,8 +11,10 @@ import {
 } from "lucide-react";
 import categoriesData from "../Data/category";
 import productList from "../Data/products";
-import { NavLink, Link,useNavigate } from "react-router-dom";
-import { getCurrentUser, logoutUser } from "./Authentication/utils/auth"; // Adjust the path as needed
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import { getCurrentUser, logoutUser } from "./Authentication/utils/auth"; 
+import defaultImg from "../assets/products.png";
+
 
 export default function Navbar() {
   const countries = [
@@ -52,7 +54,6 @@ export default function Navbar() {
 
     const current = getCurrentUser();
     setUser(current);
-    
 
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -91,7 +92,7 @@ export default function Navbar() {
     <>
       <nav
         ref={navRef}
-        className=" w-full h-auto bg-[var(--nav)] flex flex-col justify-center items-center shadow-md sticky top-0 z-50 "
+        className=" w-full h-auto bg-[var(--nav)] flex flex-col justify-center items-center shadow-md sticky top-[-2px] z-50 "
       >
         {/* Mobile Toggler */}
         <div className="flex flex-col sm:flex-row md:flex-wrap lg:flex-nowrap justify-s w-full max-w-[1500px] items-start py-4 gap-y-3 gap-x-4 ">
@@ -104,7 +105,7 @@ export default function Navbar() {
               }}
               className="text-[var(--brand)] text-2xl md:text-3xl font-bold transition-all duration-300 hover:opacity-80 cursor-pointer sm:text-left w-full sm:w-auto lg:ml-2 ml-4 "
             >
-              Digimart<span className="text-red-500 font-extrabold">.</span>
+              Digi<span className="text-red-500">mart</span><span className="text-[var(--brand)] font-extrabold">.</span>
             </h1>
           </Link>
           <button
@@ -162,50 +163,51 @@ export default function Navbar() {
             </div>
 
             {/* search results */}
-           <div
-  onClick={() => {
-    setSearchTerm(``);
-  }}
-  className={`h-screen w-screen absolute sm:top-40 md:top-40 top-60 lg:top-26.5 left-0 backdrop-blur-sm bg-black/30 transition-all duration-300 ${
-    searchTerm === `` ? `hidden` : `block`
-  }`}
->
-  <div
-    className={`w-[95%] md:w-1/2 bg-white rounded-2xl shadow-xl max-h-80 overflow-y-auto z-50 absolute left-[50vw] translate-x-[-50%] md:translate-x-0 md:left-2 lg:left-[13vw] top-0 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 ${
-      searchTerm === `` ? `hidden` : `block`
-    }`}
-  >
-    {results.length > 0 && searchTerm.trim() !== "" ? (
-      <>
-        <p className="sticky top-0 z-10 p-3 bg-gray-900 text-white text-sm font-semibold uppercase border-b border-gray-700">
-          {`In ${selectedCat}`}
-        </p>
-        {results.map((product) => (
-          <Link
-            key={product.id}
-            to={`/product/${product.id}`}
-            className="flex items-center gap-2 p-3 hover:bg-gray-100 transition-colors duration-200 border-b border-gray-200"
-          >
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-10 h-10 object-contain rounded"
-            />
-            <p
-              onClick={() => setSearchTerm(``)}
-              className="text-sm font-medium text-gray-800"
+            <div
+              onClick={() => {
+                setSearchTerm(``);
+              }}
+              className={`h-screen w-screen absolute sm:top-40 md:top-40 top-60 lg:top-26.5 left-0 backdrop-blur-sm bg-black/30 transition-all duration-300 ${
+                searchTerm === `` ? `hidden` : `block`
+              }`}
             >
-              {product.name}
-            </p>
-          </Link>
-        ))}
-      </>
-    ) : searchTerm.trim() !== "" ? (
-      <p className="px-4 py-3 text-sm text-gray-600">No results found.</p>
-    ) : null}
-  </div>
-</div>
-
+              <div
+                className={`w-[95%] md:w-1/2 bg-white rounded-2xl shadow-xl max-h-80 overflow-y-auto z-50 absolute left-[50vw] translate-x-[-50%] md:translate-x-0 md:left-2 lg:left-[13vw] top-0 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 ${
+                  searchTerm === `` ? `hidden` : `block`
+                }`}
+              >
+                {results.length > 0 && searchTerm.trim() !== "" ? (
+                  <>
+                    <p className="sticky top-0 z-10 p-3 bg-gray-900 text-white text-sm font-semibold uppercase border-b border-gray-700">
+                      {`In ${selectedCat}`}
+                    </p>
+                    {results.map((product) => (
+                      <Link
+                        key={product.id}
+                        to={`/product/${product.id}`}
+                        className="flex items-center gap-2 p-3 hover:bg-gray-100 transition-colors duration-200 border-b border-gray-200"
+                      >
+                        <img
+                          src={product.image? product.image:defaultImg}
+                          alt={product.name}
+                          className="w-10 h-10 object-cover rounded"
+                        />
+                        <p
+                          onClick={() => setSearchTerm(``)}
+                          className="text-sm font-medium text-gray-800"
+                        >
+                          {product.name}
+                        </p>
+                      </Link>
+                    ))}
+                  </>
+                ) : searchTerm.trim() !== "" ? (
+                  <p className="px-4 py-3 text-sm text-gray-600">
+                    No results found.
+                  </p>
+                ) : null}
+              </div>
+            </div>
 
             {/* Country Selector */}
             <div
@@ -247,12 +249,15 @@ export default function Navbar() {
                 </NavLink>
               </div>
 
-              {user? (
+              {user ? (
                 <div className="flex items-center gap-3 text-sm">
                   <div className="flex flex-col items-center text-green-400">
-                   <NavLink to={`/user`} className="flex flex-col items-center text-green-400">
-                    <User className="h-5 w-5" />
-                    <span>{user.name || user.email || "User"}</span>
+                    <NavLink
+                      to={`/user`}
+                      className="flex flex-col items-center text-green-400"
+                    >
+                      <User className="h-5 w-5" />
+                      <span>{user.name || user.email || "User"}</span>
                     </NavLink>
                   </div>
                   <button
@@ -288,7 +293,7 @@ export default function Navbar() {
           onClick={() => {
             setSearchTerm(``);
           }}
-          className="w-full  h-8 sm:overscroll-contain overflow-y-hidden overflowx-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 bg-gray-700 flex justify-evenly items-center text-white text-xs static overflow-hidden"
+          className="w-full  h-8 sm:overscroll-contain overflow-y-hidden overflowx-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 bg-gray-800 flex justify-evenly items-center text-white text-xs static overflow-hidden"
         >
           <div className="max-w-[1500px] flex justify-between ">
             <NavLink to={`/`}>
@@ -311,6 +316,7 @@ export default function Navbar() {
             })}
           </div>
         </div>
+        
       </nav>
     </>
   );

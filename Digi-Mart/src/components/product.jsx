@@ -14,11 +14,15 @@ import { useParams, Link } from "react-router-dom";
 import productList from "../Data/products";
 import { useCart } from "../Context/cartContext";
 import { useWishlist } from "../Context/wishListContext";
+import defaultImg from "../assets/products.png";
+
 
 const ProductPage = () => {
   const { id } = useParams();
   const product = productList.find((item) => item.id === Number(id));
-  const [selectedImage, setSelectedImage] = useState(product?.image);
+  const [selectedImage, setSelectedImage] = useState(
+    product? product.image? product.image :defaultImg:null
+  );
   const [quantity, setQuantity] = useState(1);
   const { addToCart, checkIfInCart, removeFromCart } = useCart();
   const [isClicked, setIsClicked] = useState(false);
@@ -31,7 +35,7 @@ const ProductPage = () => {
   } = useWishlist();
 
   useEffect(() => {
-    setSelectedImage(product?.image);
+    setSelectedImage(product? product.image? product.image :defaultImg:null);
   }, [product]);
 
   if (!product) {
@@ -77,7 +81,11 @@ const ProductPage = () => {
             className="w-full h-[500px] object-contain rounded-xl border"
           />
           <div className="flex gap-4 mt-4 justify-center ">
-            {[product.image, product.image2, product.image3].map((img, i) => (
+            {[
+              product.image ? product.image : defaultImg,
+              product.image2 ? product.image2 : defaultImg,
+              product.image3 ? product.image3 : defaultImg,
+            ].map((img, i) => (
               <img
                 key={i}
                 src={img}
@@ -201,7 +209,7 @@ const ProductPage = () => {
               className="border rounded-lg p-4 hover:shadow-lg transition hover:scale-105"
             >
               <img
-                src={prod.image}
+                src={prod.image? prod.image : defaultImg}
                 alt={prod.name}
                 className="w-full h-[200px] object-contain mb-4"
               />

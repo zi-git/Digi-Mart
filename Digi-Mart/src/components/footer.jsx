@@ -62,9 +62,9 @@ function Footer() {
           <ul className="space-y-2 text-sm">
             {categoriesData.map((c) => {
               return (
-                <NavLink to={`/category/${c.id}`} key={c.id}>
+                <Link to={`/category/${c.id}`} key={c.id}>
                   <li>{c.title}</li>
-                </NavLink>
+                </Link>
               );
             })}
           </ul>

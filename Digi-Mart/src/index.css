@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import "tailwindcss";
-@import 'tailwindcss';
-@import 'tailwind-scrollbar-hide/v4';
+@import "tailwindcss";
+@import "tailwind-scrollbar-hide/v4";
 @plugin 'tailwind-scrollbar';
 
 :root {
@@ -9,28 +9,89 @@
   --button-color: hsla(349, 100%, 41%, 1);
   --iris: hsla(235, 56%, 54%, 1);
   --nav: hsla(240, 15%, 10%, 1);
-  --brand: hsla(0, 0%, 100%, 1);
-  --text-font: 'Poppins', sans-serif;
+  --brand: rgb(184, 183, 183);
+  --text-font: "Poppins", sans-serif;
+
+  :root {
+    /* Light theme colors */
+    --color-primary: #4f46e5; /* Indigo 600 */
+    --color-primary-dark: #4338ca; /* Indigo 700 */
+    --color-secondary: #f59e0b; /* Amber 500 */
+    --color-accent: #10b981; /* Emerald 500 */
+    --color-bg: #ffffff;
+    --color-bg-alt: #f9fafb; /* Light gray background */
+    --color-text: #111827; /* Gray 900 */
+    --color-text-light: #6b7280; /* Gray 500 */
+    --color-border: #e5e7eb; /* Gray 200 */
+
+    /* Spacing (based on em for scalable sizing) */
+    --space-xs: 0.25em;
+    --space-sm: 0.5em;
+    --space-md: 1em;
+    --space-lg: 2em;
+    --space-xl: 4em;
+
+    /* Font sizes */
+    --font-xs: 0.75em;
+    --font-sm: 0.875em;
+    --font-base: 1em;
+    --font-lg: 1.125em;
+    --font-xl: 1.5em;
+    --font-2xl: 2em;
+    --font-3xl: 3em;
+
+    /* Border radius */
+    --radius-sm: 0.25em;
+    --radius-md: 0.5em;
+    --radius-lg: 1em;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+  }
+
+  /* Optional Dark Theme Example */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #111827;
+      --color-bg-alt: #1f2937;
+      --color-text: #f9fafb;
+      --color-text-light: #9ca3af;
+      --color-border: #374151;
+    }
+  }
 }
 
-.active{
-    color: #00d9ff;
-    font-style: italic;
-    background-image: linear-gradient(to top, rgba(69, 71, 185, 0.24), rgba(38, 172, 190, 0.089));
-    text-transform: capitalize;
-    border-radius: 5px;
-    border-bottom: 3px solid rgb(0, 217, 255);
-    padding-left: 5px;
-    padding-right: 5px;
+body{
+  background-color: #55555517;
 }
+
+.active {
+  color: #00d9ff;
+  font-style: italic;
+  background-image: linear-gradient(
+    to top,
+    rgba(69, 71, 185, 0.24),
+    rgba(38, 172, 190, 0.089)
+  );
+  text-transform: capitalize;
+  border-radius: 5px;
+  border-bottom: 3px solid rgb(0, 217, 255);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
 
 @keyframes glow {
-    0% {
-        text-shadow: 0 0 3px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
-    }
-    100% {
-        text-shadow: 0 0 5px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
-    }
+  0% {
+    text-shadow: 0 0 3px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e,
+      0 0 40px #ff005e, 0 0 80px #ff005e;
+  }
+  100% {
+    text-shadow: 0 0 5px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff,
+      0 0 80px #00d4ff, 0 0 160px #00d4ff;
+  }
 }
 
 /* optional if not using plugin */

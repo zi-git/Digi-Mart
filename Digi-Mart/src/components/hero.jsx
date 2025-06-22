@@ -2,6 +2,13 @@ import productList from "../Data/products";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import categoriesData from "../Data/category";
+import {
+  MdLocalShipping,
+  MdPayment,
+  MdVerified,
+  MdLocalOffer,
+  MdSavings,
+} from "react-icons/md";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -71,15 +78,43 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     cssEase: "linear",
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
 
+   const features = [
+    {
+      icon: <MdLocalShipping size={32} className="text-primary" />,
+      title: "Free Delivery",
+      description: "Enjoy quick and free delivery on all orders.",
+    },
+    {
+      icon: <MdPayment size={32} className="text-primary" />,
+      title: "Secure Payment",
+      description: "Pay with confidence using secure options.",
+    },
+    {
+      icon: <MdVerified size={32} className="text-primary" />,
+      title: "Quality Guarantee",
+      description: "Only high-quality, trusted products.",
+    },
+    {
+      icon: <MdSavings size={32} className="text-primary" />,
+      title: "Guaranteed Savings",
+      description: "Save more with the best prices and deals.",
+    },
+    {
+      icon: <MdLocalOffer size={32} className="text-primary" />,
+      title: "Daily Offers",
+      description: "New discounts and deals every single day.",
+    },
+  ];
+
   return (
     <>
-      <div className="w-full bg-[#f7f9fb] flex flex-col justify-between items-center gap-10 sm:pt-0 pt-1 scroll-smooth">
+      <div className="w-full bg-[#55555517] flex flex-col justify-between items-center gap-10 sm:pt-0 pt-1 scroll-smooth">
         <div className="w-full lg:w-[80%] md:w-[90%] sm:w-[95%] pb-10">
           <Slider {...settings} className="">
             {categoriesData.map((category) => (
@@ -98,14 +133,14 @@ const Home = () => {
             {
               title: "Today's Deals - 30% Off",
               start: 0,
-              end: 4,
+              end: 5,
               discount: 0.3,
             },
-            { title: "Top Picks - 50% Off", start: 4, end: 8, discount: 0.5 },
+            { title: "Top Picks - 50% Off", start: 25, end: 30, discount: 0.5 },
             {
               title: "Recommended for You - 10% Off",
-              start: 8,
-              end: 12,
+              start: 41,
+              end: 46,
               discount: 0.1,
             },
           ].map((section, i) => (
@@ -113,7 +148,7 @@ const Home = () => {
               <h1 className="text-2xl md:text-3xl font-bold mb-4">
                 {section.title}
               </h1>
-              <div className="w-full flex overflow-x-auto gap-4 p-2 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+              <div className="w-full h-1/4 flex justify-evenly bg-transparent overflow-x-auto overflow-y-hidden gap-4 p-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
                 {productList
                   .slice(section.start, section.end)
                   .map((product, index) => {
@@ -126,14 +161,18 @@ const Home = () => {
                     return (
                       <div
                         key={product.id}
-                        className="min-w-[200px] md:min-w-[220px] bg-white p-4 rounded-md 
+                        className="min-w-[200px] md:min-w-[250px] bg-gray-100 p-4 rounded-md 
                          shadow-md hover:shadow-lg transition duration-300 hover:scale-105"
                       >
                         <Link to={`/product/${product.id}`}>
                           <img
-                            src={product.image}
+                            src={
+                              product.image
+                                ? product.image
+                                : "src/assets/products.png"
+                            }
                             alt={product.name}
-                            className="w-full h-[160px] object-contain mb-3 bg-white"
+                            className="w-full h-[60%] object-contain mb-3 bg-white"
                           />
                           <h3 className="text-base font-semibold text-gray-800 truncate">
                             {product.name}
@@ -162,6 +201,21 @@ const Home = () => {
               </div>
             </div>
           ))}
+
+          {/* {} */}
+          <section className="bg-white py-10 my-15 px-4">
+            <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              {features.map((item, index) => (
+                <div key={index} className="flex flex-col items-start">
+                  <div className="shrink-0">{item.icon}</div>
+                  <div>
+                    <h5 className="text-lg font-semibold">{item.title}</h5>
+                    <p className="text-gray-600 text-sm">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </>
