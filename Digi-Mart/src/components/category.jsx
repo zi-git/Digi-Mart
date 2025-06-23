@@ -23,15 +23,15 @@ const CategoryPage = () => {
   );
 
   return (
-    <div className="px-4 md:px-10 bg-gray-100 py-8 max-w-screen-xl mx-10">
-      <h1 className="text-3xl font-bold mb-6 capitalize">
+    <div className="px-4 md:px-10 bg-gray-100 py-8 max-w-screen-xl mx-auto md:mx-auto">
+      <h1 className="text-3xl font-bold mb-6 capitalize ">
         {category.title} Products
       </h1>
 
       {filteredProducts.length === 0 ? (
         <p>No products found in this category.</p>
       ) : (
-        <div className=" bg-gray-00 p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className=" bg-gray-00 p-5 flex justify-center w-[90vw] md:w-full flex-wrap gap-6 ">
           {filteredProducts.map((product) => (
             <Link
               key={product.id}
