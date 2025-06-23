@@ -269,7 +269,7 @@ export default function Navbar() {
                   </button>
                 </div>
               ) : (
-                <div className="flex justify-evenly gap-6 md:gap-3 w-full sm:w-auto">
+                <div className="flex items-center justify-between gap-3 text-sm">
                   <NavLink to={`/auth/login`}>
                     <button className="flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:text-green-500">
                       <User className="h-5 w-5" />
