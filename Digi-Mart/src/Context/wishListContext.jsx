@@ -16,7 +16,6 @@ export const WishlistProvider = ({ children }) => {
 
   const [wishlistItems, setWishlistItems] = useState(getInitialWishlist());
 
-  // Sync cookie whenever wishlistItems change
   const updateWishlistInCookie = (items) => {
     const cookie = Cookies.get("auth");
     try {

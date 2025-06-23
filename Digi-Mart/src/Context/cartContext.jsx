@@ -3,34 +3,29 @@ import Cookies from "js-cookie";
 
 const CartContext = createContext();
 
-const getCartFromCookie = () => {
-  const cookie = Cookies.get("auth");
-  try {
-    if (cookie) {
+export const CartProvider = ({ children }) => {
+  const getCartFromCookie = () => {
+    const cookie = Cookies.get("auth");
+    try {
       const parsed = JSON.parse(cookie);
       return parsed.cartItems || [];
+    } catch (err) {
+      return [];
     }
-  } catch (err) {
-    console.error("Invalid auth cookie", err);
-  }
-  return [];
-};
-
-const updateCartInCookie = (cartItems) => {
-  const cookie = Cookies.get("auth");
-  if (!cookie) return;
-
-  try {
-    const parsed = JSON.parse(cookie);
-    const updated = { ...parsed, cartItems };
-    Cookies.set("auth", JSON.stringify(updated), { expires: 365 });
-  } catch (err) {
-    console.error("Failed to update cart in cookie", err);
-  }
-};
-
-export const CartProvider = ({ children }) => {
+  };
+  
   const [cartItems, setCartItems] = useState(getCartFromCookie());
+
+  const updateCartInCookie = (cartItems) => {
+    const cookie = Cookies.get("auth");
+    try {
+      const parsed = JSON.parse(cookie);
+      parsed.cartItems = items;
+      Cookies.set("auth", JSON.stringify(updated), { expires: 365 });
+    } catch (err) {
+      console.error("Failed to update cart in cookie", err);
+    }
+  };
 
   const syncCart = (newCart) => {
     setCartItems(newCart);
