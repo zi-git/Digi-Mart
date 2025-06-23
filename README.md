@@ -10,7 +10,7 @@
 
 ---
 
-## 📸 Screenshots(https://github.com/user-attachments/assets/740921cc-9abb-4631-bbd6-1eb26387f3b1)
+## [📸 Screenshots](https://github.com/user-attachments/assets/740921cc-9abb-4631-bbd6-1eb26387f3b1)
 
 ---
 
