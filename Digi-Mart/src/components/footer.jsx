@@ -7,9 +7,8 @@ import {
   FaGithub,
 } from "react-icons/fa";
 
-import categoriesData from "../Data/category";
+import categoriesData from "../Data/categoryList";
 import { NavLink, Link } from "react-router-dom";
-
 
 function Footer() {
   const [email, setEmail] = useState("");

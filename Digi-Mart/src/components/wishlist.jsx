@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { useWishlist } from "../Context/wishListContext";
 import { Link } from "react-router-dom";
 import { FaHeartCircleMinus } from "react-icons/fa6";
+import defaultImg from "../assets/products.png";
+
 
 const WishlistPage = () => {
   const { wishlistItems, removeFromWishlist } = useWishlist();
@@ -23,7 +25,7 @@ const WishlistPage = () => {
             >
               <Link to={`/product/${item.id}`}>
                 <img
-                  src={item.image}
+                  src={item.image.trim()!=""?item.image : defaultImg}
                   alt={item.name}
                   className="w-full h-48 object-contain mb-4"
                 />

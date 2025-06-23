@@ -16,12 +16,11 @@ import { useCart } from "../Context/cartContext";
 import { useWishlist } from "../Context/wishListContext";
 import defaultImg from "../assets/products.png";
 
-
 const ProductPage = () => {
   const { id } = useParams();
   const product = productList.find((item) => item.id === Number(id));
   const [selectedImage, setSelectedImage] = useState(
-    product? product.image? product.image :defaultImg:null
+    product ? (product.image ? product.image : defaultImg) : null
   );
   const [quantity, setQuantity] = useState(1);
   const { addToCart, checkIfInCart, removeFromCart } = useCart();
@@ -35,7 +34,9 @@ const ProductPage = () => {
   } = useWishlist();
 
   useEffect(() => {
-    setSelectedImage(product? product.image? product.image :defaultImg:null);
+    setSelectedImage(
+      product ? (product.image ? product.image : defaultImg) : null
+    );
   }, [product]);
 
   if (!product) {
@@ -62,12 +63,7 @@ const ProductPage = () => {
   };
 
   const suggestedProducts = productList
-    .filter(
-      (p) =>
-        p.id !== product.id &&
-        (p.category === product.category ||
-          p["sub-category"] === product["sub-category"])
-    )
+    .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
   return (
@@ -209,7 +205,7 @@ const ProductPage = () => {
               className="border rounded-lg p-4 hover:shadow-lg transition hover:scale-105"
             >
               <img
-                src={prod.image? prod.image : defaultImg}
+                src={prod.image ? prod.image : defaultImg}
                 alt={prod.name}
                 className="w-full h-[200px] object-contain mb-4"
               />

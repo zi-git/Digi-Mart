@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useCart } from "../Context/cartContext";
 import { Link } from "react-router-dom";
+import dfaultImg from "../assets/products.png"
 
 const CartPage = () => {
   const { cartItems, totalPrice, removeFromCart, clearCart, updateQuantity } =
@@ -23,7 +24,7 @@ const CartPage = () => {
               <div className="flex items-center gap-6 w-full sm:w-auto">
                 <Link to={`/product/${item.id}`}>
                   <img
-                    src={item.image}
+                    src={item.image.trim()!=""? item.image : dfaultImg}
                     alt={item.name}
                     className="w-24 h-[10vh] object-contain rounded-md border"
                   />

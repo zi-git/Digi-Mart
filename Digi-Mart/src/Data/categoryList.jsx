@@ -1,10 +1,25 @@
+import gaming from "../assets/gaming.png";
+import audio from "../assets/audio.png";
+import accessories from "../assets/accessories.png";
+import computing from "../assets/computing.png";
+import display from "../assets/display.png";
+import footwear from "../assets/footwear.png";
+import homeAppliences from "../assets/homeAppliences.png";
+import network from "../assets/network.png";
+import peripheral from "../assets/peripheral.png";
+import photography from "../assets/photography.png";
+import smarthome from "../assets/smarthome.png";
+import storage from "../assets/storage.png";
+import wearables from "../assets/wearables.png";
+
+
 const categoriesData = [
   {
     id: 1,
     title: "Gaming",
     subtitle:
       "Explore vast new worlds, epic adventures, and competitive arenas.",
-    Icon: "src/assets/gaming.png",
+    Icon: gaming,
     colors: {
       bg: "from-purple-600/40 via-blue-500/40 to-green-400/40",
       btn: "from-purple-600 to-blue-500",
@@ -15,7 +30,7 @@ const categoriesData = [
     title: "Footwear",
     subtitle:
       "Find your perfect pair for any occasion. Style, comfort, and performance.",
-    Icon: `src/assets/footwear.png`,
+    Icon: footwear,
     colors: {
       bg: "from-orange-500/40 via-amber-500/40 to-lime-500/40",
       btn: "from-orange-500 to-amber-500",
@@ -26,7 +41,7 @@ const categoriesData = [
     title: "audio",
     subtitle:
       "Immerse yourself in crystal-clear sound. High-fidelity audio gear.",
-    Icon: `src/assets/audio.png`,
+    Icon: audio,
     colors: {
       bg: "from-cyan-500/40 via-sky-500/40 to-indigo-500/40",
       btn: "from-cyan-500 to-indigo-500",
@@ -37,7 +52,7 @@ const categoriesData = [
     title: "Home Appliances",
     subtitle:
       "Modernize your home with appliances that make life easier and smarter.",
-    Icon: `src/assets/homeAppliences.png`,
+    Icon: homeAppliences,
     colors: {
       bg: "from-gray-400/40 via-gray-500/40 to-gray-600/40",
       btn: "from-gray-500 to-gray-700",
@@ -48,7 +63,7 @@ const categoriesData = [
     title: "Photography",
     subtitle:
       "Capture life's moments with stunning clarity. Gear for every creator.",
-    Icon: `src/assets/photography.png`,
+    Icon: photography,
     colors: {
       bg: "from-rose-500/40 via-pink-500/40 to-fuchsia-500/40",
       btn: "from-rose-500 to-fuchsia-500",
@@ -58,7 +73,7 @@ const categoriesData = [
     id: 6,
     title: "Storage",
     subtitle: "Secure, fast, and reliable solutions for your digital life.",
-    Icon: `src/assets/storage.png`,
+    Icon: storage,
     colors: {
       bg: "from-emerald-500/40 via-teal-500/40 to-green-600/40",
       btn: "from-emerald-500 to-green-600",
@@ -68,7 +83,7 @@ const categoriesData = [
     id: 7,
     title: "Smart Home",
     subtitle: "Create a connected, automated, and secure home.",
-    Icon: `src/assets/smarthome.png`,
+    Icon: smarthome,
     colors: {
       bg: "from-blue-600/40 via-violet-500/40 to-fuchsia-500/40",
       btn: "from-blue-600 to-violet-500",
@@ -78,7 +93,7 @@ const categoriesData = [
     id: 8,
     title: "Accessories",
     subtitle: "Everything you need to stay productive and organized.",
-    Icon: `src/assets/accessories.png`,
+    Icon: accessories,
     colors: {
       bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
       btn: "from-sky-500 to-slate-600",
@@ -88,7 +103,7 @@ const categoriesData = [
     id: 9,
     title: "Computing",
     subtitle: "Everything you need to stay productive and organized.",
-    Icon: `src/assets/computing.png`,
+    Icon: computing,
     colors: {
       bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
       btn: "from-sky-500 to-slate-600",
@@ -98,7 +113,7 @@ const categoriesData = [
     id: 10,
     title: "Peripherals",
     subtitle: "Everything you need to stay productive and organized.",
-    Icon: `src/assets/peripheral.png`,
+    Icon: peripheral,
     colors: {
       bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
       btn: "from-sky-500 to-slate-600",
@@ -108,7 +123,7 @@ const categoriesData = [
     id: 11,
     title: "Networking",
     subtitle: "Everything you need to stay productive and organized.",
-    Icon: `src/assets/network.png`,
+    Icon: network,
     colors: {
       bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
       btn: "from-sky-500 to-slate-600",
@@ -118,7 +133,7 @@ const categoriesData = [
     id: 12,
     title: "Display",
     subtitle: "Everything you need to stay productive and organized.",
-    Icon: `src/assets/display.png`,
+    Icon: display,
     colors: {
       bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
       btn: "from-sky-500 to-slate-600",
@@ -128,7 +143,7 @@ const categoriesData = [
     id: 13,
     title: "Wearables",
     subtitle: "Everything you need to stay productive and organized.",
-    Icon: `src/assets/wearables.png`,
+    Icon: wearables,
     colors: {
       bg: "from-sky-500/40 via-blue-500/40 to-slate-600/40",
       btn: "from-sky-500 to-slate-600",

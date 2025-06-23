@@ -9,12 +9,11 @@ import {
   Wind,
   LogOut,
 } from "lucide-react";
-import categoriesData from "../Data/category";
+import categoriesData from "../Data/categoryList";
 import productList from "../Data/products";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import { getCurrentUser, logoutUser } from "./Authentication/utils/auth"; 
+import { getCurrentUser, logoutUser } from "./Authentication/utils/auth";
 import defaultImg from "../assets/products.png";
-
 
 export default function Navbar() {
   const countries = [
@@ -105,7 +104,8 @@ export default function Navbar() {
               }}
               className="text-[var(--brand)] text-2xl md:text-3xl font-bold transition-all duration-300 hover:opacity-80 cursor-pointer sm:text-left w-full sm:w-auto lg:ml-2 ml-4 "
             >
-              Digi<span className="text-red-500">mart</span><span className="text-[var(--brand)] font-extrabold">.</span>
+              Digi<span className="text-red-500">mart</span>
+              <span className="text-[var(--brand)] font-extrabold">.</span>
             </h1>
           </Link>
           <button
@@ -188,7 +188,7 @@ export default function Navbar() {
                         className="flex items-center gap-2 p-3 hover:bg-gray-100 transition-colors duration-200 border-b border-gray-200"
                       >
                         <img
-                          src={product.image? product.image:defaultImg}
+                          src={product.image ? product.image : defaultImg}
                           alt={product.name}
                           className="w-10 h-10 object-cover rounded"
                         />
@@ -230,10 +230,10 @@ export default function Navbar() {
               onClick={() => {
                 setSearchTerm(``);
               }}
-              className="flex sm:flex-row justify-between items-center w-full sm:w-auto gap-5 text-[var(--text-color)] text-sm"
+              className="flex sm:flex-row justify-evenly items-center w-[90%] sm:w-auto gap-5 text-[var(--text-color)] text-sm"
             >
               {/* Wishlist & Cart */}
-              <div className="flex justify-evenly gap-6 md:gap-3 w-full sm:w-auto">
+              <div className="flex justify-evenly gap-6 md:gap-3 w-auto sm:w-auto">
                 <NavLink to={`/wishlist`}>
                   <div className="flex flex-col items-center cursor-pointer transition-all duration-300 hover:text-red-500">
                     <Heart className="h-5 w-8" />
@@ -250,14 +250,14 @@ export default function Navbar() {
               </div>
 
               {user ? (
-                <div className="flex items-center gap-3 text-sm">
+                <div className="flex items-center justify-between gap-3 text-sm">
                   <div className="flex flex-col items-center text-green-400">
                     <NavLink
                       to={`/user`}
                       className="flex flex-col items-center text-green-400"
                     >
                       <User className="h-5 w-5" />
-                      <span>{user.name || user.email || "User"}</span>
+                      <span>{user.name || user.email || "Guest"}</span>
                     </NavLink>
                   </div>
                   <button
@@ -293,7 +293,7 @@ export default function Navbar() {
           onClick={() => {
             setSearchTerm(``);
           }}
-          className="w-full  h-8 sm:overscroll-contain overflow-y-hidden overflowx-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 bg-gray-800 flex justify-evenly items-center text-white text-xs static overflow-hidden"
+          className="w-full  h-8 sm:overscroll-contain overflow-y-hidden overflowx-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 bg-gray-800 flex justify-evenly items-center text-white text-xs static"
         >
           <div className="max-w-[1500px] flex justify-between ">
             <NavLink to={`/`}>
@@ -307,7 +307,7 @@ export default function Navbar() {
                   {" "}
                   <span
                     key={c.id}
-                    className="cursor-pointer hover:underline md:font-semibold w-auto px-2.5 text-nowrap text-sm md:text-base"
+                    className="cursor-pointer hover:underline md:font-semibold w-auto px-2.5 text-nowrap text-sm md:text-base capitalize"
                   >
                     {c.title}
                   </span>
@@ -316,7 +316,6 @@ export default function Navbar() {
             })}
           </div>
         </div>
-        
       </nav>
     </>
   );

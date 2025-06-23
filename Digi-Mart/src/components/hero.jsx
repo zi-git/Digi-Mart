@@ -1,7 +1,7 @@
 import productList from "../Data/products";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import categoriesData from "../Data/category";
+import categoriesData from "../Data/categoryList";
 import {
   MdLocalShipping,
   MdPayment,
@@ -9,6 +9,7 @@ import {
   MdLocalOffer,
   MdSavings,
 } from "react-icons/md";
+import defaultImg from "../assets/products.png";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -84,7 +85,7 @@ const Home = () => {
     prevArrow: <SamplePrevArrow />,
   };
 
-   const features = [
+  const features = [
     {
       icon: <MdLocalShipping size={32} className="text-primary" />,
       title: "Free Delivery",
@@ -169,7 +170,7 @@ const Home = () => {
                             src={
                               product.image
                                 ? product.image
-                                : "src/assets/products.png"
+                                : defaultImg
                             }
                             alt={product.name}
                             className="w-full h-[60%] object-contain mb-3 bg-white"
